@@ -1,9 +1,9 @@
 import telebot
 from telebot import types
-from config import TOKEN, START, DELIVERY, ORDER
-from Kosmo_desant import KOSMO_TEXT
-from Imperium import IMPERIUM_TEXT
-
+from config import TOKEN, START
+from Kosmo_desant import kosmo_main, back_from_kosmo_units, kosmo_units, orden_kosmo, main_menu, order, delivery, back_from_orden_kosmo
+from Imperium import imperium_main, adeptus, astra, back_from_astra, back_from_adeptus
+import re
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -19,57 +19,77 @@ def start(message):
     bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption=START, reply_markup= markup_inline)
 
 
+
+
 @bot.callback_query_handler(func = lambda callback: callback.data)
 def main(callback):
-    if callback.data == 'kosmo':
-        markup_inline_2 = types.InlineKeyboardMarkup(row_width=1)
-        Kosmo_units = types.InlineKeyboardButton(text='Общие Юниты', callback_data='kosmo_units')
-        Orden_kosmo = types.InlineKeyboardButton(text='Отряды орденов космодесанта', callback_data='orden_kosmo')
-        menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-        markup_inline_2.add(Kosmo_units, Orden_kosmo, menu)
 
-        bot.edit_message_media(media=types.InputMedia(media=open('pictures/kosmodesant.png', 'rb'), caption=KOSMO_TEXT, type="photo"), chat_id=callback.message.chat.id, message_id=callback.message.id,
-                              reply_markup=markup_inline_2)
+    if callback.data == 'kosmo':
+        callback.data = 'kosmo'
+        kosmo_main(callback)
+
     elif callback.data == 'imperium':
-        markup_inline_3 = types.InlineKeyboardMarkup(row_width=1)
-        Astra = types.InlineKeyboardButton(text='Астра милитарум (имперская гвардия)', callback_data='astra')
-        Adeptus = types.InlineKeyboardButton(text='Адептус механикус', callback_data='adeptus')
-        menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-        markup_inline_3.add(Astra, Adeptus, menu)
-        bot.edit_message_media(
-            media=types.InputMedia(media=open('pictures/imperium.png', 'rb'), caption=IMPERIUM_TEXT, type="photo"),
-            chat_id=callback.message.chat.id, message_id=callback.message.id,
-            reply_markup=markup_inline_3)
+        callback.data = 'imperium'
+        imperium_main(callback)
 
     elif callback.data == 'menu':
-        markup_inline = types.InlineKeyboardMarkup(row_width=1)
-        desant = types.InlineKeyboardButton(text='Космодесант', callback_data='kosmo')
-        imp = types.InlineKeyboardButton(text='Силы Империума', callback_data='imperium')
-        Order = types.InlineKeyboardButton(text='Сделать заказ', callback_data='order')
-        Delivery = types.InlineKeyboardButton(text='Доставка', callback_data='delivery')
-        markup_inline.add(desant, imp, Order, Delivery)
-        bot.edit_message_media(
-            media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=START, type="photo"),
-            chat_id=callback.message.chat.id, message_id=callback.message.id,
-            reply_markup=markup_inline)
+        callback.data = 'menu'
+        main_menu(callback)
 
     elif callback.data == 'order':
-        markup_inline = types.InlineKeyboardMarkup(row_width=1)
-        menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-        markup_inline.add(menu)
-        bot.edit_message_media(
-            media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=ORDER, type="photo"),
-            chat_id=callback.message.chat.id, message_id=callback.message.id,
-            reply_markup=markup_inline)
+        callback.data = 'order'
+        order(callback)
+
+        @bot.message_handler(content_types=["text"])
+        def user_order(message):
+            callback.data = 'order'
+            if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan': #сделать шаблон через регулярки
+                bot.send_message(message.chat.id, 'Заказ создан успешно')
+                start(message=message)
+            else:
+                bot.send_message(message.chat.id, 'Введите текст корректно')
+                bot.register_next_step_handler(message, user_order)
+
+
+
+
+
+
+
+
+
+
 
     elif callback.data == 'delivery':
-        markup_inline = types.InlineKeyboardMarkup(row_width=1)
-        menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-        markup_inline.add(menu)
-        bot.edit_message_media(
-            media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=DELIVERY, type="photo"),
-            chat_id=callback.message.chat.id, message_id=callback.message.id,
-            reply_markup=markup_inline)
+        delivery(callback)
+
+    elif callback.data == 'kosmo_units':
+        kosmo_units(callback)
+
+    elif callback.data == 'orden_kosmo':
+        orden_kosmo(callback)
+
+    elif callback.data == 'back_from_orden_kosmo':
+        back_from_orden_kosmo(callback)
+
+    elif callback.data == 'back_from_kosmo_units':
+        back_from_kosmo_units(callback)
+
+    elif callback.data == 'adeptus':
+        adeptus(callback)
+
+    elif callback.data == 'back_from_adeptus':
+        back_from_adeptus(callback)
+
+    elif callback.data == 'astra':
+        astra(callback)
+
+    elif callback.data == 'back_from_astra':
+        back_from_astra(callback)
+
+
+
+
 
 
 
