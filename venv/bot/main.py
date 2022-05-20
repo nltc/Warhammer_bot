@@ -6,11 +6,12 @@ from Imperium import *
 from Chaos import *
 from Ksenos import *
 from Main_menu import *
+from send_email_message import send_email
 import re
 
 bot = telebot.TeleBot(TOKEN)
 
-# x = re.compile(f'[а-я] [а-я] [а-я], [/d], https://t.me/[a-z]') #Иванов Иван Иванович, 1665645, https://t.me/ivan'
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -26,7 +27,8 @@ def start(message):
 
 @bot.message_handler(content_types=["text"])
 def user_order(message):
-    if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan':  # сделать шаблон через регулярки
+    if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan': #сделать шаблон через регулярки
+        send_email(message.text)
         bot.send_message(message.chat.id, 'Заказ создан успешно')
         start(message=message)
 

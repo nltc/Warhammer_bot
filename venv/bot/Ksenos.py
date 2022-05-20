@@ -159,7 +159,7 @@ def necroni_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     necroni_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='некрофилы', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Некроны', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=necroni_inline)
 
@@ -202,7 +202,7 @@ def orks_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     orks_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='альянс сосать', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Орки', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orks_inline)
 
