@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-from config import TOKEN, START, DELIVERY, ORDER
+from config import TOKEN, START
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -21,42 +21,12 @@ KOSMO_ORDEN_TEXT = '''Орден Адептус Астартес — самос�
 обычно состоящая примерно из тысячи космодесантников, включающая в себя также административный и вспомогательный персонал. 
 На данный момент Адептус Астартес разделены примерно на тысячу орденов. Каждый орден полностью автономен, имеет свое командование, традиции, специализацию и мировоззрение'''
 
-def main_menu(callback):
-    main_inline = types.InlineKeyboardMarkup(row_width=1)
-    desant = types.InlineKeyboardButton(text='Космодесант', callback_data='kosmo')
-    imp = types.InlineKeyboardButton(text='Силы Империума', callback_data='imperium')
-    Order = types.InlineKeyboardButton(text='Сделать заказ', callback_data='order')
-    Delivery = types.InlineKeyboardButton(text='Доставка', callback_data='delivery')
-    main_inline.add(desant, imp, Order, Delivery)
-    bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=START, type="photo"),
-        chat_id=callback.message.chat.id, message_id=callback.message.id,
-        reply_markup=main_inline)
-
-def order(callback):
-    order_inline = types.InlineKeyboardMarkup(row_width=1)
-    menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-    order_inline.add(menu)
-    bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=ORDER, type="photo"),
-        chat_id=callback.message.chat.id, message_id=callback.message.id,
-        reply_markup=order_inline)
-
-
-def delivery(callback):
-    delivery_inline = types.InlineKeyboardMarkup(row_width=1)
-    menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
-    delivery_inline.add(menu)
-    bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=DELIVERY, type="photo"),
-        chat_id=callback.message.chat.id, message_id=callback.message.id,
-        reply_markup=delivery_inline)
 
 def kosmo_main(callback):
     kosmo_inline = types.InlineKeyboardMarkup(row_width=1)
     Kosmo_units = types.InlineKeyboardButton(text='Общие Юниты', callback_data='kosmo_units')
-    Orden_kosmo = types.InlineKeyboardButton(text='Отряды орденов космодесанта', callback_data='orden_kosmo')
-    menu = types.InlineKeyboardButton(text='Назад в главное меню', callback_data='menu')
+    Orden_kosmo = types.InlineKeyboardButton(text='Отдельные ордена', callback_data='orden_kosmo')
+    menu = types.InlineKeyboardButton(text='Назад', callback_data='warhammer_menu')
     kosmo_inline.add(Kosmo_units, Orden_kosmo, menu)
     bot.edit_message_media(
         media=types.InputMedia(media=open('pictures/kosmodesant.png', 'rb'), caption=KOSMO_TEXT, type="photo"),
@@ -66,29 +36,105 @@ def kosmo_main(callback):
 
 def kosmo_units(callback):
     kosmo_units_inline = types.InlineKeyboardMarkup(row_width=1)
-    back = types.InlineKeyboardButton(text='Назад', callback_data='back_from_kosmo_units')
-    kosmo_units_inline.add(back)
+    technics = types.InlineKeyboardButton(text='Техника', callback_data='kosmo_units_technics')
+    squads = types.InlineKeyboardButton(text='Отряды', callback_data='kosmo_squads')
+    characters = types.InlineKeyboardButton(text='Персонажи', callback_data='kosmo_characters')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_main')
+    kosmo_units_inline.add(technics,squads,characters,back)
     bot.edit_message_media(
         media=types.InputMedia(media=open('pictures/kosmounits.png', 'rb'), caption=KOSMO_UNITS_TEXT, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_units_inline)
 
 
-def back_from_kosmo_units(callback):
-    kosmo_main(callback)
+def kosmo_units_technics(callback):
+    kosmo_units_technics_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
+    kosmo_units_technics_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Техника', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=kosmo_units_technics_inline)
+
+
+def kosmo_squads(callback):
+    kosmo_squads_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
+    kosmo_squads_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Отряды', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=kosmo_squads_inline)
+
+
+
+def kosmo_characters(callback):
+    kosmo_characters_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
+    kosmo_characters_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Персонажи', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=kosmo_characters_inline)
+
 
 
 def orden_kosmo(callback):
     kosmo_orden_inline = types.InlineKeyboardMarkup(row_width=1)
-    back = types.InlineKeyboardButton(text='Назад', callback_data='back_from_orden_kosmo')
-    kosmo_orden_inline.add(back)
+    technics = types.InlineKeyboardButton(text='Техника', callback_data='orden_technics')
+    squads = types.InlineKeyboardButton(text='Отряды', callback_data='orden_squads')
+    characters = types.InlineKeyboardButton(text='Персонажи', callback_data='orden_characters')
+    upgrade = types.InlineKeyboardButton(text='Наборы апгрейда', callback_data='orden_upgrade')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_main')
+    kosmo_orden_inline.add(technics, squads, characters, upgrade,back)
     bot.edit_message_media(
         media=types.InputMedia(media=open('pictures/kosmoorden.png', 'rb'), caption=KOSMO_ORDEN_TEXT, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_orden_inline)
 
-def back_from_orden_kosmo(callback):
-    kosmo_main(callback)
+
+def orden_technics(callback):
+    kosmo_orden_technics_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
+    kosmo_orden_technics_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Техника', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=kosmo_orden_technics_inline)
+
+
+def orden_squads(callback):
+    orden_squads_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
+    orden_squads_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Отряды', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=orden_squads_inline)
+
+
+
+def orden_characters(callback):
+    orden_characters_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
+    orden_characters_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Персонажи', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=orden_characters_inline)
+
+
+def orden_upgrade(callback):
+    orden_upgrade_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
+    orden_upgrade_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Наборы апргейда', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=orden_upgrade_inline)
+
+
+
 
 
 

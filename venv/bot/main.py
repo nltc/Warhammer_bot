@@ -1,92 +1,201 @@
 import telebot
 from telebot import types
 from config import TOKEN, START
-from Kosmo_desant import kosmo_main, back_from_kosmo_units, kosmo_units, orden_kosmo, main_menu, order, delivery, back_from_orden_kosmo
-from Imperium import imperium_main, adeptus, astra, back_from_astra, back_from_adeptus
+from Kosmo_desant import *
+from Imperium import *
+from Chaos import *
+from Main_menu import *
 import re
 
 bot = telebot.TeleBot(TOKEN)
 
+x = re.compile(f'[а-я] [а-я] [а-я], [/d], https://t.me/[a-z]') #Иванов Иван Иванович, 1665645, https://t.me/ivan'
 
 @bot.message_handler(commands=['start'])
 def start(message):
     markup_inline = types.InlineKeyboardMarkup(row_width=1)
-    desant = types.InlineKeyboardButton(text ='Космодесант', callback_data='kosmo')
-    imp = types.InlineKeyboardButton(text='Силы Империума', callback_data='imperium')
-    Order = types.InlineKeyboardButton(text='Сделать заказ', callback_data='order')
-    Delivery = types.InlineKeyboardButton(text='Доставка', callback_data='delivery')
-    markup_inline.add(desant,imp,Order,Delivery)
-    bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption=START, reply_markup= markup_inline)
+    warhammer = types.InlineKeyboardButton(text='Warhammer 40K', callback_data='warhammer_menu')
+    terrein = types.InlineKeyboardButton(text='Террейн', callback_data='terrein_menu')
+    accesorios = types.InlineKeyboardButton(text='Аксессуары', callback_data='accesorios_menu')
+    order_pay = types.InlineKeyboardButton(text='Доставка и оплата', callback_data='order_pay_menu')
+    about_us = types.InlineKeyboardButton(text='О нас', callback_data='about_us_menu')
+    markup_inline.add(warhammer, terrein, accesorios, order_pay, about_us)
+    bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption='Самое начало', reply_markup=markup_inline)
 
 
-
-
-@bot.callback_query_handler(func = lambda callback: callback.data)
+@bot.callback_query_handler(func = lambda callback: True)
 def main(callback):
+    bot.answer_callback_query(callback.id)
 
-    if callback.data == 'kosmo':
-        callback.data = 'kosmo'
-        kosmo_main(callback)
+    if callback.data == 'warhammer_menu':
+        warhammer_menu(callback)
 
-    elif callback.data == 'imperium':
-        callback.data = 'imperium'
-        imperium_main(callback)
+    elif callback.data == 'terrein_menu':
+        terrein_menu(callback)
 
-    elif callback.data == 'menu':
-        callback.data = 'menu'
+    elif callback.data == 'accesorios_menu':
+        accesorios_menu(callback)
+
+    elif callback.data == 'order_pay_menu':
+        order_pay_menu(callback)
+
+    elif callback.data == 'about_us_menu':
+        about_us_menu(callback)
+
+    elif callback.data == 'main_menu':
         main_menu(callback)
 
-    elif callback.data == 'order':
-        callback.data = 'order'
-        order(callback)
-
-        @bot.message_handler(content_types=["text"])
-        def user_order(message):
-            callback.data = 'order'
-            if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan': #сделать шаблон через регулярки
-                bot.send_message(message.chat.id, 'Заказ создан успешно')
-                start(message=message)
-            else:
-                bot.send_message(message.chat.id, 'Введите текст корректно')
-                bot.register_next_step_handler(message, user_order)
-
-
-
-
-
-
-
-
-
-
-
-    elif callback.data == 'delivery':
-        delivery(callback)
+    elif callback.data == 'kosmo_main':
+        kosmo_main(callback)
 
     elif callback.data == 'kosmo_units':
         kosmo_units(callback)
 
+    elif callback.data == 'kosmo_units_technics':
+        kosmo_units_technics(callback)
+
+    elif callback.data == 'kosmo_squads':
+        kosmo_squads(callback)
+
+    elif callback.data == 'kosmo_characters':
+        kosmo_characters(callback)
+
     elif callback.data == 'orden_kosmo':
         orden_kosmo(callback)
 
-    elif callback.data == 'back_from_orden_kosmo':
-        back_from_orden_kosmo(callback)
+    elif callback.data == 'orden_characters':
+        orden_characters(callback)
 
-    elif callback.data == 'back_from_kosmo_units':
-        back_from_kosmo_units(callback)
+    elif callback.data == 'orden_technics':
+        orden_technics(callback)
 
-    elif callback.data == 'adeptus':
-        adeptus(callback)
+    elif callback.data == 'orden_squads':
+        orden_squads(callback)
 
-    elif callback.data == 'back_from_adeptus':
-        back_from_adeptus(callback)
+    elif callback.data == 'orden_upgrade':
+        orden_upgrade(callback)
 
-    elif callback.data == 'astra':
-        astra(callback)
+    elif callback.data == 'imperium_main':
+        imperium_main(callback)
 
-    elif callback.data == 'back_from_astra':
-        back_from_astra(callback)
+    elif callback.data == 'sororitas_main':
+        sororitas_main(callback)
 
+    elif callback.data == 'sororitas_technics':
+        sororitas_technics(callback)
+
+    elif callback.data == 'sororitas_squads':
+        sororitas_squads(callback)
+
+    elif callback.data == 'sororitas_characters':
+        sororitas_characters(callback)
+
+    elif callback.data == 'kustodes_main':
+        kustodes_main(callback)
+
+    elif callback.data == 'kustodes_technics':
+        kustodes_technics(callback)
+
+    elif callback.data == 'kustodes_squads':
+        kustodes_squads(callback)
+
+    elif callback.data == 'kustodes_characters':
+        kustodes_characters(callback)
+
+    elif callback.data == 'mechanikus_main':
+        mechanikus_main(callback)
+
+    elif callback.data == 'mechanikus_technics':
+        mechanikus_technics(callback)
+
+    elif callback.data == 'mechanikus_squads':
+        mechanikus_squads(callback)
+
+    elif callback.data == 'mechanikus_characters':
+        mechanikus_characters(callback)
+
+    elif callback.data == 'militarium_main':
+        militarium_main(callback)
+
+    elif callback.data == 'militarium_technics':
+        militarium_technics(callback)
+
+    elif callback.data == 'militarium_squads':
+        militarium_squads(callback)
+
+    elif callback.data == 'militarium_characters':
+        militarium_characters(callback)
+
+    elif callback.data == 'knigts_main':
+        knigts_main(callback)
+
+    elif callback.data == 'inquisition_main':
+        inquisition_main(callback)
+
+    elif callback.data == 'chaos_main':
+        chaos_main(callback)
+
+    elif callback.data == 'demons_main':
+        demons_main(callback)
+
+    elif callback.data == 'demons_squads':
+        demons_squads(callback)
+
+    elif callback.data == 'demons_characters':
+        demons_characters(callback)
+
+    elif callback.data == 'knights_chaos_main':
+        knights_chaos_main(callback)
+
+    elif callback.data == 'kosmo_chaos_main':
+        kosmo_chaos_main(callback)
+
+    elif callback.data == 'kosmo_chaos_technics':
+        kosmo_chaos_technics(callback)
+
+    elif callback.data == 'kosmo_chaos_squads':
+        kosmo_chaos_squads(callback)
+
+    elif callback.data == 'kosmo_chaos_characters':
+        kosmo_chaos_characters(callback)
+
+    elif callback.data == 'guard_death_main':
+        guard_death_main(callback)
+
+    elif callback.data == 'guard_death_technics':
+        guard_death_technics(callback)
+
+    elif callback.data == 'guard_death_squads':
+        guard_death_squads(callback)
+
+    elif callback.data == 'guard_death_characters':
+        guard_death_characters(callback)
+
+    elif callback.data == 'thousand_sons_main':
+        thousand_sons_main(callback)
+
+    elif callback.data == 'thousand_sons_technics':
+        thousand_sons_technics(callback)
+
+    elif callback.data == 'thousand_sons_squads':
+        thousand_sons_squads(callback)
+
+    elif callback.data == 'thousand_sons_characters':
+        thousand_sons_characters(callback)
+
+
+
+    @bot.message_handler(content_types=["text"])
+    def user_order(message):
+
+        if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan':  # сделать шаблон через регулярки
+            bot.send_message(message.chat.id, 'Заказ создан успешно')
+            pass
+
+            start(message=message)
+        elif message.text != 'Иванов Иван Иванович, 1665645, https://t.me/ivan':
+            bot.send_message(message.chat.id, 'Введите данные корректно')
+                    # bot.register_next_step_handler(message, user_order)
 
 
 
