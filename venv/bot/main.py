@@ -4,12 +4,13 @@ from config import TOKEN, START
 from Kosmo_desant import *
 from Imperium import *
 from Chaos import *
+from Ksenos import *
 from Main_menu import *
 import re
 
 bot = telebot.TeleBot(TOKEN)
 
-x = re.compile(f'[а-я] [а-я] [а-я], [/d], https://t.me/[a-z]') #Иванов Иван Иванович, 1665645, https://t.me/ivan'
+# x = re.compile(f'[а-я] [а-я] [а-я], [/d], https://t.me/[a-z]') #Иванов Иван Иванович, 1665645, https://t.me/ivan'
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -23,9 +24,20 @@ def start(message):
     bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption='Самое начало', reply_markup=markup_inline)
 
 
+@bot.message_handler(content_types=["text"])
+def user_order(message):
+    if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan':  # сделать шаблон через регулярки
+        bot.send_message(message.chat.id, 'Заказ создан успешно')
+        start(message=message)
+
+    elif message.text != 'Иванов Иван Иванович, 1665645, https://t.me/ivan':
+        bot.send_message(message.chat.id, 'Введите данные корректно')
+
+
+
 @bot.callback_query_handler(func = lambda callback: True)
 def main(callback):
-    bot.answer_callback_query(callback.id)
+
 
     if callback.data == 'warhammer_menu':
         warhammer_menu(callback)
@@ -180,22 +192,95 @@ def main(callback):
     elif callback.data == 'thousand_sons_squads':
         thousand_sons_squads(callback)
 
-    elif callback.data == 'thousand_sons_characters':
-        thousand_sons_characters(callback)
+    elif callback.data == 'ksenos_main':
+        ksenos_main(callback)
+
+    elif callback.data == 'aeldari_main':
+        aeldari_main(callback)
+
+    elif callback.data == 'aeldari_technics':
+        aeldari_technics(callback)
+
+    elif callback.data == 'aeldari_squads':
+        aeldari_squads(callback)
+
+    elif callback.data == 'aeldari_characters':
+        aeldari_characters(callback)
+
+    elif callback.data == 'drukhari_main':
+        drukhari_main(callback)
+
+    elif callback.data == 'drukhari_technics':
+        drukhari_technics(callback)
+
+    elif callback.data == 'drukhari_squads':
+        drukhari_squads(callback)
+
+    elif callback.data == 'drukhari_characters':
+        drukhari_characters(callback)
+
+    elif callback.data == 'genokradi_main':
+        genokradi_main(callback)
+
+    elif callback.data == 'genokradi_technics':
+        genokradi_technics(callback)
+
+    elif callback.data == 'genokradi_squads':
+        genokradi_squads(callback)
+
+    elif callback.data == 'genokradi_characters':
+        genokradi_characters(callback)
+
+    elif callback.data == 'necroni_main':
+        necroni_main(callback)
+
+    elif callback.data == 'necroni_technics':
+        necroni_technics(callback)
+
+    elif callback.data == 'necroni_squads':
+        necroni_squads(callback)
+
+    elif callback.data == 'necroni_characters':
+        necroni_characters(callback)
+
+    elif callback.data == 'orks_main':
+        orks_main(callback)
+
+    elif callback.data == 'orks_technics':
+        orks_technics(callback)
+
+    elif callback.data == 'orks_squads':
+        orks_squads(callback)
+
+    elif callback.data == 'orks_characters':
+        orks_characters(callback)
+
+    elif callback.data == 'tau_main':
+        tau_main(callback)
+
+    elif callback.data == 'tau_technics':
+        tau_technics(callback)
+
+    elif callback.data == 'tau_squads':
+        tau_squads(callback)
+
+    elif callback.data == 'tau_characters':
+        tau_characters(callback)
+
+    elif callback.data == 'tiranidi_main':
+        tiranidi_main(callback)
+
+    elif callback.data == 'tiranidi_squads':
+        tiranidi_squads(callback)
+
+    elif callback.data == 'tiranidi_bugs':
+        tiranidi_bugs(callback)
 
 
 
-    @bot.message_handler(content_types=["text"])
-    def user_order(message):
 
-        if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan':  # сделать шаблон через регулярки
-            bot.send_message(message.chat.id, 'Заказ создан успешно')
-            pass
 
-            start(message=message)
-        elif message.text != 'Иванов Иван Иванович, 1665645, https://t.me/ivan':
-            bot.send_message(message.chat.id, 'Введите данные корректно')
-                    # bot.register_next_step_handler(message, user_order)
+
 
 
 

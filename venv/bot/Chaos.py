@@ -12,7 +12,7 @@ def chaos_main(callback):
     kosmo_chaos = types.InlineKeyboardButton(text='Космодесант хаоса', callback_data='kosmo_chaos_main')
     guard_death = types.InlineKeyboardButton(text='Гвардия смерти', callback_data='guard_death_main')
     thousand_sons = types.InlineKeyboardButton(text='Тысяча сынов', callback_data='thousand_sons_main')
-    menu = types.InlineKeyboardButton(text='Назад ', callback_data='warhammer_menu')
+    menu = types.InlineKeyboardButton(text='Назад', callback_data='warhammer_menu')
     chaos_inline.add(demons, knights_chaos, kosmo_chaos, guard_death, thousand_sons, menu)
     bot.edit_message_media(
         media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Армия хаоса', type="photo"),

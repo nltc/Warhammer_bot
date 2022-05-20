@@ -61,6 +61,9 @@ def order_pay_menu(callback):
         reply_markup=order_pay_inline)
 
 
+
+
+
 def about_us_menu(callback):
     about_us_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
