@@ -11,7 +11,7 @@ import re
 
 bot = telebot.TeleBot(TOKEN)
 
-
+pattern = re.compile('[А-Яа-я]+\s+[А-Яа-я]+\s+[А-Яа-я]+,\s*([0-9])+,\s*(http|https):\/\/t.me\/(([^_])([A-Za-z]{4,32})([^_]))')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -27,19 +27,18 @@ def start(message):
 
 @bot.message_handler(content_types=["text"])
 def user_order(message):
-    if message.text == 'Иванов Иван Иванович, 1665645, https://t.me/ivan': #сделать шаблон через регулярки
+    if pattern.match(message.text) is not None:
         send_email(message.text)
         bot.send_message(message.chat.id, 'Заказ создан успешно')
         start(message=message)
 
-    elif message.text != 'Иванов Иван Иванович, 1665645, https://t.me/ivan':
+    else:
         bot.send_message(message.chat.id, 'Введите данные корректно')
-
 
 
 @bot.callback_query_handler(func = lambda callback: True)
 def main(callback):
-
+    bot.answer_callback_query(callback.id)
 
     if callback.data == 'warhammer_menu':
         warhammer_menu(callback)
