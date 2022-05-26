@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
 from config import TOKEN
+from db import add_to_order
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -12,10 +13,11 @@ def chaos_main(callback):
     kosmo_chaos = types.InlineKeyboardButton(text='Космодесант хаоса', callback_data='kosmo_chaos_main')
     guard_death = types.InlineKeyboardButton(text='Гвардия смерти', callback_data='guard_death_main')
     thousand_sons = types.InlineKeyboardButton(text='Тысяча сынов', callback_data='thousand_sons_main')
+    upgrade = types.InlineKeyboardButton(text='Наборы апгрейда', callback_data='upgrade_main')
     menu = types.InlineKeyboardButton(text='Назад', callback_data='warhammer_menu')
-    chaos_inline.add(demons, knights_chaos, kosmo_chaos, guard_death, thousand_sons, menu)
+    chaos_inline.add(demons, knights_chaos, kosmo_chaos, guard_death, thousand_sons,upgrade, menu)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Армия хаоса', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Армии хаоса', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=chaos_inline)
 
@@ -52,13 +54,135 @@ def demons_characters(callback):
 
 
 def knights_chaos_main(callback):
-    knights_inline = types.InlineKeyboardMarkup(row_width=1)
+    knights_inline = types.InlineKeyboardMarkup(row_width=4)
+    knights_chaos_22001 = types.InlineKeyboardButton(text='22001', callback_data='knights_chaos_22001')
+    knights_chaos_22002 = types.InlineKeyboardButton(text='22002', callback_data='knights_chaos_22002')
+    knights_chaos_22003 = types.InlineKeyboardButton(text='22003', callback_data='knights_chaos_22003')
+    knights_chaos_22004 = types.InlineKeyboardButton(text='22004', callback_data='knights_chaos_22004')
+    knights_chaos_22005 = types.InlineKeyboardButton(text='22005', callback_data='knights_chaos_22005')
+    knights_chaos_22006 = types.InlineKeyboardButton(text='22006', callback_data='knights_chaos_22006')
+    knights_chaos_22007 = types.InlineKeyboardButton(text='22007', callback_data='knights_chaos_22007')
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
-    knights_inline.add(back)
+    knights_inline.add(knights_chaos_22001, knights_chaos_22002, knights_chaos_22003, knights_chaos_22004, knights_chaos_22005,
+                        knights_chaos_22006, knights_chaos_22007,back)
     bot.edit_message_media(
         media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='рыцарюги', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_inline)
+
+
+def knights_chaos_22001(callback):
+    knights_chaos_22001_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22001')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22001_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22001.jpg', 'rb'), caption='Индекс: 22001\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22001_inline)
+
+def add_22001(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22001, ')
+
+
+
+def knights_chaos_22002(callback):
+    knights_chaos_22002_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22002')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22002_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22002.jpg', 'rb'), caption='Индекс: 22002\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22002_inline)
+
+def add_22002(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22002, ')
+
+
+def knights_chaos_22003(callback):
+    knights_chaos_22003_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22003')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22003_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22003.jpg', 'rb'), caption='Индекс: 22003\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22003_inline)
+
+def add_22003(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22003, ')
+
+
+def knights_chaos_22004(callback):
+    knights_chaos_22004_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22004')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22004_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22004.jpg', 'rb'), caption='Индекс: 22004\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22004_inline)
+
+def add_22004(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22004, ')
+
+
+def knights_chaos_22005(callback):
+    knights_chaos_22005_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22005')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22005_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22005.jpg', 'rb'), caption='Индекс: 22005\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22005_inline)
+
+def add_22005(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22005, ')
+
+
+def knights_chaos_22006(callback):
+    knights_chaos_22006_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22006')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22006_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22006.jpg', 'rb'), caption='Индекс: 22006\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22006_inline)
+
+def add_22006(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22006, ')
+
+
+def knights_chaos_22007(callback):
+    knights_chaos_22007_inline = types.InlineKeyboardMarkup(row_width=1)
+    add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22007')
+    back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
+    knights_chaos_22007_inline.add(add, back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('Рыцари хаоса/22007.jpg', 'rb'), caption='Индекс: 22007\nЦена: 4999 руб.',
+                               type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=knights_chaos_22007_inline)
+
+def add_22007(callback):
+    bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
+    add_to_order(callback, '22007, ')
+
 
 
 def kosmo_chaos_main(callback):
@@ -186,4 +310,14 @@ def thousand_sons_characters(callback):
         media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Персонажи', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_characters_inline)
+
+
+def upgrade_main(callback):
+    upgrade_main_inline = types.InlineKeyboardMarkup(row_width=1)
+    back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
+    upgrade_main_inline.add(back)
+    bot.edit_message_media(
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Наборы апгрейда', type="photo"),
+        chat_id=callback.message.chat.id, message_id=callback.message.id,
+        reply_markup=upgrade_main_inline)
 

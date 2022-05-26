@@ -283,7 +283,7 @@ def tau_characters(callback):
 def tiranidi_main(callback):
     tiranidi_inline = types.InlineKeyboardMarkup(row_width=1)
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='tiranidi_squads')
-    bugs = types.InlineKeyboardButton(text='Большие жуки', callback_data='tiranidi_bugs')
+    bugs = types.InlineKeyboardButton(text='Исполины', callback_data='tiranidi_ispolin')
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     tiranidi_inline.add(squads, bugs, back)
     bot.edit_message_media(
@@ -302,11 +302,11 @@ def tiranidi_squads(callback):
         reply_markup=tiranidi_squads_inline)
 
 
-def tiranidi_bugs(callback):
-    tiranidi_bugs_inline = types.InlineKeyboardMarkup(row_width=1)
+def tiranidi_ispolin(callback):
+    tiranidi_ispolin_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='tiranidi_main')
-    tiranidi_bugs_inline.add(back)
+    tiranidi_ispolin_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Большие жуки', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Исполины', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
-        reply_markup=tiranidi_bugs_inline)
+        reply_markup=tiranidi_ispolin_inline)
