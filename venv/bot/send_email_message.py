@@ -1,6 +1,5 @@
 import smtplib
 import telebot
-from telebot import types
 from email.mime.text import MIMEText
 from config import TOKEN, FROM_EMAIL, TO_EMAIL, PASSWORD
 import re
@@ -8,6 +7,9 @@ import re
 bot = telebot.TeleBot(TOKEN)
 
 def send_email(message):
+
+    '''Отправка письма с заказом на почту'''
+
     sender = FROM_EMAIL
     password = PASSWORD
     server = smtplib.SMTP('smtp.gmail.com', 587)

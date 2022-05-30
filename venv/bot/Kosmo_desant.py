@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
-from config import TOKEN, START
+from config import TOKEN
+from db import add_to_order
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -23,6 +24,9 @@ KOSMO_ORDEN_TEXT = '''Орден Адептус Астартес — самос�
 
 
 def kosmo_main(callback):
+
+    '''Меню Космодесанта'''
+
     kosmo_inline = types.InlineKeyboardMarkup(row_width=1)
     Kosmo_units = types.InlineKeyboardButton(text='Общие Юниты', callback_data='kosmo_units')
     Orden_kosmo = types.InlineKeyboardButton(text='Отдельные ордена', callback_data='orden_kosmo')
@@ -35,6 +39,9 @@ def kosmo_main(callback):
 
 
 def kosmo_units(callback):
+
+    '''Меню общих юнитов'''
+
     kosmo_units_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='kosmo_units_technics')
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='kosmo_squads')
@@ -48,6 +55,9 @@ def kosmo_units(callback):
 
 
 def kosmo_units_technics(callback):
+
+    '''Техника общих юнитов'''
+
     kosmo_units_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_units_technics_inline.add(back)
@@ -58,6 +68,9 @@ def kosmo_units_technics(callback):
 
 
 def kosmo_squads(callback):
+
+    '''Отряды общих юнитов'''
+
     kosmo_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_squads_inline.add(back)
@@ -69,6 +82,9 @@ def kosmo_squads(callback):
 
 
 def kosmo_characters(callback):
+
+    '''Персонажи общих юнитов'''
+
     kosmo_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_characters_inline.add(back)
@@ -80,6 +96,9 @@ def kosmo_characters(callback):
 
 
 def orden_kosmo(callback):
+
+    '''Меню отдельных орденов'''
+
     kosmo_orden_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='orden_technics')
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='orden_squads')
@@ -94,6 +113,9 @@ def orden_kosmo(callback):
 
 
 def orden_technics(callback):
+
+    '''Техника отдельных орденов'''
+
     kosmo_orden_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     kosmo_orden_technics_inline.add(back)
@@ -104,6 +126,9 @@ def orden_technics(callback):
 
 
 def orden_squads(callback):
+
+    '''Отряды отдельных орденов'''
+
     orden_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_squads_inline.add(back)
@@ -115,6 +140,9 @@ def orden_squads(callback):
 
 
 def orden_characters(callback):
+
+    '''Персонажи отдельных орденов'''
+
     orden_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_characters_inline.add(back)
@@ -125,6 +153,9 @@ def orden_characters(callback):
 
 
 def orden_upgrade(callback):
+
+    '''Наборы апргейда отдельных орденов'''
+
     orden_upgrade_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_upgrade_inline.add(back)

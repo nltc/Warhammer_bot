@@ -7,6 +7,9 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def chaos_main(callback):
+
+    '''Меню армии хаоса'''
+
     chaos_inline = types.InlineKeyboardMarkup(row_width=1)
     demons = types.InlineKeyboardButton(text='Демоны хаоса', callback_data='demons_main')
     knights_chaos = types.InlineKeyboardButton(text='Рыцари хаоса', callback_data='knights_chaos_main')
@@ -23,17 +26,23 @@ def chaos_main(callback):
 
 
 def demons_main(callback):
+
+    '''Меню демонов'''
+
     demons_inline = types.InlineKeyboardMarkup(row_width=1)
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='demons_squads')
     characters = types.InlineKeyboardButton(text='Персонажи', callback_data='demons_characters')
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     demons_inline.add(squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='демонюги', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Демоны', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=demons_inline)
 
 def demons_squads(callback):
+
+    '''Отряды демонов'''
+
     demons_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='demons_main')
     demons_squads_inline.add(back)
@@ -44,6 +53,9 @@ def demons_squads(callback):
 
 
 def demons_characters(callback):
+
+    '''Персонажи демонов'''
+
     demons_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='demons_main')
     demons_characters_inline.add(back)
@@ -54,6 +66,9 @@ def demons_characters(callback):
 
 
 def knights_chaos_main(callback):
+
+    '''Меню рыцарей хаоса'''
+
     knights_inline = types.InlineKeyboardMarkup(row_width=4)
     knights_chaos_22001 = types.InlineKeyboardButton(text='22001', callback_data='knights_chaos_22001')
     knights_chaos_22002 = types.InlineKeyboardButton(text='22002', callback_data='knights_chaos_22002')
@@ -66,7 +81,7 @@ def knights_chaos_main(callback):
     knights_inline.add(knights_chaos_22001, knights_chaos_22002, knights_chaos_22003, knights_chaos_22004, knights_chaos_22005,
                         knights_chaos_22006, knights_chaos_22007,back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='рыцарюги', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Рыцари хаоса', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_inline)
 
@@ -186,6 +201,9 @@ def add_22007(callback):
 
 
 def kosmo_chaos_main(callback):
+
+    '''Меню космодесанта хаоса'''
+
     kosmo_chaos_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='kosmo_chaos_technics')
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='kosmo_chaos_squads')
@@ -199,6 +217,9 @@ def kosmo_chaos_main(callback):
 
 
 def kosmo_chaos_technics(callback):
+
+    '''Техника космодесанта хаоса'''
+
     kosmo_chaos_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_technics_inline.add(back)
@@ -209,6 +230,9 @@ def kosmo_chaos_technics(callback):
 
 
 def kosmo_chaos_squads(callback):
+
+    '''Отряды космодесанта хаоса'''
+
     kosmo_chaos_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_squads_inline.add(back)
@@ -219,6 +243,9 @@ def kosmo_chaos_squads(callback):
 
 
 def kosmo_chaos_characters(callback):
+
+    '''Персонажи космодесанта хаоса'''
+
     kosmo_chaos_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_characters_inline.add(back)
@@ -228,6 +255,9 @@ def kosmo_chaos_characters(callback):
         reply_markup=kosmo_chaos_characters_inline)
 
 def guard_death_main(callback):
+
+    '''Меню гвардии смерти'''
+
     guard_death_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='guard_death_technics')
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='guard_death_squads')
@@ -241,6 +271,9 @@ def guard_death_main(callback):
 
 
 def guard_death_technics(callback):
+
+    '''Техника гвардии смерти'''
+
     guard_death_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_technics_inline.add(back)
@@ -251,6 +284,9 @@ def guard_death_technics(callback):
 
 
 def guard_death_squads(callback):
+
+    '''Отряды гвардии смерти'''
+
     guard_death_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_squads_inline.add(back)
@@ -261,6 +297,9 @@ def guard_death_squads(callback):
 
 
 def guard_death_characters(callback):
+
+    '''Персонажи гвардии смерти'''
+
     guard_death_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_characters_inline.add(back)
@@ -270,6 +309,9 @@ def guard_death_characters(callback):
         reply_markup=guard_death_characters_inline)
 
 def thousand_sons_main(callback):
+
+    '''Меню тысячи сынов'''
+
     thousand_sons_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='thousand_sons_technics')
     squads = types.InlineKeyboardButton(text='Отряды', callback_data='thousand_sons_squads')
@@ -277,12 +319,15 @@ def thousand_sons_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     thousand_sons_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='сынки', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Тысяча сынов', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_inline)
 
 
 def thousand_sons_technics(callback):
+
+    '''Техника тысячи сынов'''
+
     thousand_sons_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_technics_inline.add(back)
@@ -293,6 +338,9 @@ def thousand_sons_technics(callback):
 
 
 def thousand_sons_squads(callback):
+
+    '''Отряды тысячи сынов'''
+
     thousand_sons_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_squads_inline.add(back)
@@ -303,6 +351,9 @@ def thousand_sons_squads(callback):
 
 
 def thousand_sons_characters(callback):
+
+    '''Персонажи тысячи сынов'''
+
     thousand_sons_characters_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_characters_inline.add(back)
@@ -313,6 +364,9 @@ def thousand_sons_characters(callback):
 
 
 def upgrade_main(callback):
+
+    '''Меню наборов апргейда'''
+
     upgrade_main_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     upgrade_main_inline.add(back)

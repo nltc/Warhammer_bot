@@ -6,16 +6,20 @@ from Imperium import *
 from Chaos import *
 from Ksenos import *
 from Main_menu import *
-from send_email_message import send_email
-from db import add_to_db, delete_user, add_tg_link
+from check_number import number_check
+from db import add_to_db, delete_user, add_tg_link, add_vk_link, add_email, add_phone_number
 import re
+
 
 
 
 bot = telebot.TeleBot(TOKEN)
 
 
-pattern = re.compile('(http|https):\/\/t.me\/(([^_])([A-Za-z]{4,32})([^_]))')
+tg_pattern = re.compile('(http|https):\/\/t.me\/(([^_])([A-Za-z]{4,32})([^_]))')
+# vk_pattern = re.compile('(http|https):\/\/vk.com\/(([^_])([A-Za-z]{4,32})([^_]))')
+vk_pattern = re.compile('@(([^_])([A-Za-z]{4,32})([^_]))')
+email_pattern = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -35,8 +39,23 @@ def start(message):
 
 @bot.message_handler(content_types=["text"])
 def user_order(message):
-    if pattern.match(message.text) is not None:
+
+    '''Проверка, подходит ли текст пользователя шаблонам телеграм, вк или почты'''
+
+    if tg_pattern.match(message.text) is not None:
         add_tg_link(message)
+
+    elif vk_pattern.match(message.text) is not None:
+        add_vk_link(message)
+
+    elif number_check(message.text):
+        add_phone_number(message)
+
+    elif 'vk.com' in message.text:
+        add_vk_link(message)
+
+    elif email_pattern.match(message.text) is not None:
+        add_email(message)
 
     else:
         bot.send_message(message.chat.id, 'Введите данные корректно')
@@ -89,16 +108,27 @@ def main(callback):
         'militarium_upgrade': militarium_upgrade,
         'knigts_main': knigts_main,
         'knigts_15001': knigts_15001,
+        'add_15001': add_15001,
         'knigts_15002': knigts_15002,
+        'add_15002': add_15002,
         'knigts_15003': knigts_15003,
+        'add_15003': add_15003,
         'knigts_15004': knigts_15004,
+        'add_15004': add_15004,
         'knigts_15005': knigts_15005,
+        'add_15005': add_15005,
         'knigts_15006': knigts_15006,
+        'add_15006': add_15006,
         'knigts_15007': knigts_15007,
+        'add_15007': add_15007,
         'knigts_15008': knigts_15008,
+        'add_15008': add_15008,
         'knigts_15009': knigts_15009,
+        'add_15009': add_15009,
         'knigts_15010': knigts_15010,
+        'add_15010': add_15010,
         'knigts_15011': knigts_15011,
+        'add_15011': add_15011,
         'inquisition_main': inquisition_main,
         'chaos_main': chaos_main,
         'upgrade_main': upgrade_main,
