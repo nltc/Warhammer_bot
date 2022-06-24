@@ -1,11 +1,13 @@
 import telebot
+from text import Warhammer_40000, Terrein, Accesorios, About_us, Addons, Order_pay, Start
 from telebot import types
-from config import TOKEN, START
+from config import TOKEN
 from db import select_order, delete_user_order, check_order, check_tg_link, check_vk_link, check_email, \
     send_order_with_tg, send_order_with_vk, send_order_with_email, check_phone_number, send_order_with_phone
 
 
 bot = telebot.TeleBot(TOKEN)
+
 
 def main_menu(callback):
 
@@ -21,7 +23,7 @@ def main_menu(callback):
     about_us = types.InlineKeyboardButton(text='О нас', callback_data='about_us_menu')
     markup_inline.add(warhammer, terrein, accesorios, addons, order, order_pay, about_us)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Самое начало', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Start, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=markup_inline)
 
@@ -38,7 +40,7 @@ def warhammer_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     warhammer_inline.add(desant, imp, chaos, ksenos, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=START, type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Warhammer_40000, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=warhammer_inline)
 
@@ -51,7 +53,7 @@ def terrein_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     terrein_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='террейн', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Terrein, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=terrein_inline)
 
@@ -64,7 +66,7 @@ def accesorios_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     accesorios_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Аксессуары', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Accesorios, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=accesorios_inline)
 
@@ -130,7 +132,7 @@ def order_pay_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     order_pay_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Доставка и оплата', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Order_pay, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=order_pay_inline)
 
@@ -143,7 +145,7 @@ def about_us_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     about_us_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='О нас', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=About_us, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=about_us_inline)
 
@@ -156,6 +158,6 @@ def addons_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     addons_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Дополнительно', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Addons, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=addons_inline)

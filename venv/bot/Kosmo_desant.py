@@ -1,4 +1,5 @@
 import telebot
+from text import Adeptus, Units, Technics, Squads, Characters, Orden, Orden_Upgrade, Orden_Technics, Orden_Squads, Orden_Characters, Orden_Upgrade
 from telebot import types
 from config import TOKEN
 from db import add_to_order
@@ -6,21 +7,6 @@ from db import add_to_order
 bot = telebot.TeleBot(TOKEN)
 
 
-KOSMO_TEXT = '''Аде́птус Аста́ртес  — одни из самых элитных и устрашающих вооружённых сил Империума. 
-Основная организационная единица Астартес — орден, самостоятельная армия. 
-Существует более тысячи орденов, но всё равно этого слишком мало для того, чтобы считать космических десантников основной военной силой Империума. 
-Вместо этого они выступают в роли высокомобильных ударных сил. 
-Им поручают выполнение самых опасных заданий, таких как молниеносные рейды в тылу противника, операции по проникновению и битвы в замкнутых пространствах. 
-Космодесантники проходят жесточайший отбор, тренировки, духовную и психическую подготовку и в десятки раз превосходят других воинов Империума'''
-
-KOSMO_UNITS_TEXT = '''Традиционный кодексный орден имеет в своём составе различные виды отделений: тактические, штурмовые и отделения опустошителей. 
-Каждое отделение подготавливается и экипируется таким образом, чтобы выполнять специфическую роль на поле боя, 
-каждый из трёх видов отделений дополняет друг друга в сражении и вместе они составляют единый организм, невероятно мощный и эффективный. 
-Также, в дополнение к основным видам отделений, из воинов-ветеранов могут быть сформированы отделения ветеранов или терминаторов, а из новобранцев-космодесантников создают отделения скаутов.'''
-
-KOSMO_ORDEN_TEXT = '''Орден Адептус Астартес — самостоятельная организационная единица космического десанта, 
-обычно состоящая примерно из тысячи космодесантников, включающая в себя также административный и вспомогательный персонал. 
-На данный момент Адептус Астартес разделены примерно на тысячу орденов. Каждый орден полностью автономен, имеет свое командование, традиции, специализацию и мировоззрение'''
 
 
 def kosmo_main(callback):
@@ -33,7 +19,7 @@ def kosmo_main(callback):
     menu = types.InlineKeyboardButton(text='Назад', callback_data='warhammer_menu')
     kosmo_inline.add(Kosmo_units, Orden_kosmo, menu)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/kosmodesant.png', 'rb'), caption=KOSMO_TEXT, type="photo"),
+        media=types.InputMedia(media=open('pictures/kosmodesant.png', 'rb'), caption=Adeptus, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_inline)
 
@@ -49,7 +35,7 @@ def kosmo_units(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_main')
     kosmo_units_inline.add(technics,squads,characters,back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/kosmounits.png', 'rb'), caption=KOSMO_UNITS_TEXT, type="photo"),
+        media=types.InputMedia(media=open('pictures/kosmounits.png', 'rb'), caption=Units, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_units_inline)
 
@@ -62,7 +48,7 @@ def kosmo_units_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_units_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Техника', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_units_technics_inline)
 
@@ -75,7 +61,7 @@ def kosmo_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Отряды', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_squads_inline)
 
@@ -89,7 +75,7 @@ def kosmo_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_units')
     kosmo_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Персонажи', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_characters_inline)
 
@@ -107,7 +93,7 @@ def orden_kosmo(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_main')
     kosmo_orden_inline.add(technics, squads, characters, upgrade,back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/kosmoorden.png', 'rb'), caption=KOSMO_ORDEN_TEXT, type="photo"),
+        media=types.InputMedia(media=open('pictures/kosmoorden.png', 'rb'), caption=Orden, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_orden_inline)
 
@@ -120,7 +106,7 @@ def orden_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     kosmo_orden_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Техника', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orden_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_orden_technics_inline)
 
@@ -133,7 +119,7 @@ def orden_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Отряды', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orden_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orden_squads_inline)
 
@@ -147,7 +133,7 @@ def orden_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Персонажи', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orden_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orden_characters_inline)
 
@@ -160,7 +146,7 @@ def orden_upgrade(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orden_kosmo')
     orden_upgrade_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption='Наборы апргейда', type="photo"),
+        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orden_Upgrade, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orden_upgrade_inline)
 

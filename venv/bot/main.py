@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-from config import TOKEN, START
+from config import TOKEN
 from Kosmo_desant import *
 from Imperium import *
 from Chaos import *
@@ -40,7 +40,7 @@ def start(message):
 @bot.message_handler(content_types=["text"])
 def user_order(message):
 
-    '''Проверка, подходит ли текст пользователя шаблонам телеграм, вк или почты'''
+    '''Проверка валидности номера телефона, подходит ли текст пользователя шаблонам телеграм, вк или почты'''
 
     if tg_pattern.match(message.text) is not None:
         add_tg_link(message)
@@ -188,7 +188,7 @@ def main(callback):
         'tau_characters': tau_characters,
         'tiranidi_main': tiranidi_main,
         'tiranidi_squads': tiranidi_squads,
-        'tiranidi_ispolin': tiranidi_ispolin
+        'tiranidi_monstrs': tiranidi_monstrs
     }
 
     try:
