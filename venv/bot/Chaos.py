@@ -43,6 +43,7 @@ def demons_main(callback):
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=demons_inline)
 
+
 def demons_squads(callback):
 
     '''Отряды демонов'''
@@ -203,7 +204,6 @@ def add_22007(callback):
     add_to_order(callback, '22007, ')
 
 
-
 def kosmo_chaos_main(callback):
 
     '''Меню космодесанта хаоса'''
@@ -258,6 +258,7 @@ def kosmo_chaos_characters(callback):
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_chaos_characters_inline)
 
+
 def guard_death_main(callback):
 
     '''Меню гвардии смерти'''
@@ -311,6 +312,7 @@ def guard_death_characters(callback):
         media=types.InputMedia(media=open('pictures/Армии Хаоса/Гвардия смерти/Персонажи/main.png', 'rb'), caption=Guard_Death_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=guard_death_characters_inline)
+
 
 def thousand_sons_main(callback):
 

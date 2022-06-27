@@ -86,6 +86,7 @@ def order_menu(callback):
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=order_inline)
 
+
 def make_order(callback):
 
     '''Оформление заказа'''
@@ -115,6 +116,7 @@ def make_order(callback):
 
     elif not check_order(callback):
         bot.answer_callback_query(callback_query_id=callback.id, text="Корзина пуста", show_alert=False)
+
 
 def delete_order(callback):
 

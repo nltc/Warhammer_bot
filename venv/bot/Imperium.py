@@ -7,8 +7,8 @@ from telebot import types
 from config import TOKEN
 from db import add_to_order
 
-bot = telebot.TeleBot(TOKEN)
 
+bot = telebot.TeleBot(TOKEN)
 
 
 def imperium_main(callback):
@@ -72,7 +72,6 @@ def sororitas_squads(callback):
         reply_markup=sororitas_squads_inline)
 
 
-
 def sororitas_characters(callback):
 
     '''Персонажи Адептус Сороритас'''
@@ -128,7 +127,6 @@ def kustodes_squads(callback):
         reply_markup=kustodes_squads_inline)
 
 
-
 def kustodes_characters(callback):
 
     '''Персонажи Адептус Кустодес'''
@@ -140,6 +138,7 @@ def kustodes_characters(callback):
         media=types.InputMedia(media=open('pictures/Силы Империума/Адептус кустодес/Персонажи/main.jpg', 'rb'), caption=Kustodes_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kustodes_characters_inline)
+
 
 def mechanikus_main(callback):
 
@@ -181,7 +180,6 @@ def mechanikus_squads(callback):
         media=types.InputMedia(media=open('pictures/Силы Империума/Адептус механикус/Отряды/main.jpg', 'rb'), caption=Mechanikus_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=mechanikus_squads_inline)
-
 
 
 def mechanikus_characters(callback):
@@ -240,7 +238,6 @@ def militarium_squads(callback):
         reply_markup=militarium_squads_inline)
 
 
-
 def militarium_characters(callback):
 
     '''Персонажи Адептус Милитарум'''
@@ -290,6 +287,7 @@ def knigts_main(callback):
         media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/main.jpg', 'rb'), caption=Knigts, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_inline)
+
 
 def knigts_15001(callback):
     knigts_15001_inline = types.InlineKeyboardMarkup(row_width=1)

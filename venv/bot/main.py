@@ -20,6 +20,7 @@ tg_pattern = re.compile('(http|https):\/\/t.me\/(([^_])([A-Za-z]{4,32})([^_]))')
 vk_pattern = re.compile('@(([^_])([A-Za-z]{4,32})([^_]))')
 email_pattern = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 
+
 @bot.message_handler(commands=['start'])
 def start(message):
     delete_user(message)
@@ -59,8 +60,6 @@ def user_order(message):
     else:
         bot.send_message(message.chat.id, 'Введите данные корректно')
         bot.register_next_step_handler(message, user_order)
-
-
 
 
 @bot.callback_query_handler(func = lambda callback: callback.data)

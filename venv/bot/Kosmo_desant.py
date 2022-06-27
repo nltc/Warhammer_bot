@@ -65,7 +65,6 @@ def kosmo_squads(callback):
         reply_markup=kosmo_squads_inline)
 
 
-
 def kosmo_characters(callback):
 
     '''Персонажи общих юнитов'''
@@ -77,7 +76,6 @@ def kosmo_characters(callback):
         media=types.InputMedia(media=open('pictures/Космодесант/Общие юниты/Персонажи/main.jpg', 'rb'), caption=Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_characters_inline)
-
 
 
 def orden_kosmo(callback):
@@ -121,7 +119,6 @@ def orden_squads(callback):
         media=types.InputMedia(media=open('pictures/Космодесант/Отдельные ордена/Отряды/main.JPG', 'rb'), caption=Orden_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orden_squads_inline)
-
 
 
 def orden_characters(callback):

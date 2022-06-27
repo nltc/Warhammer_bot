@@ -3,8 +3,8 @@ from config import host, user, password, db_name, TOKEN
 import telebot
 from send_email_message import send_email
 
-bot = telebot.TeleBot(TOKEN)
 
+bot = telebot.TeleBot(TOKEN)
 
 
 def main():
