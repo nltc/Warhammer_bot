@@ -6,11 +6,10 @@ from Imperium import *
 from Chaos import *
 from Ksenos import *
 from Main_menu import *
+from text import Start
 from check_number import number_check
 from db import add_to_db, delete_user, add_tg_link, add_vk_link, add_email, add_phone_number
 import re
-
-
 
 
 bot = telebot.TeleBot(TOKEN)
@@ -33,7 +32,7 @@ def start(message):
     order_pay = types.InlineKeyboardButton(text='Доставка и оплата', callback_data='order_pay_menu')
     about_us = types.InlineKeyboardButton(text='О нас', callback_data='about_us_menu')
     markup_inline.add(warhammer, terrein, accesorios, addons, order, order_pay, about_us)
-    bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption='Самое начало', reply_markup=markup_inline)
+    bot.send_photo(message.chat.id, photo=open('pictures/start.png', 'rb'), caption=Start, reply_markup=markup_inline)
     add_to_db(message)
 
 
@@ -160,6 +159,7 @@ def main(callback):
         'guard_death_characters': guard_death_characters,
         'thousand_sons_main': thousand_sons_main,
         'thousand_sons_technics': thousand_sons_technics,
+        'thousand_sons_characters': thousand_sons_characters,
         'thousand_sons_squads': thousand_sons_squads,
         'ksenos_main': ksenos_main,
         'aeldari_main': aeldari_main,

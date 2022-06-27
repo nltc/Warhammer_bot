@@ -2,7 +2,7 @@ import smtplib
 import telebot
 from email.mime.text import MIMEText
 from config import TOKEN, FROM_EMAIL, TO_EMAIL, PASSWORD
-import re
+
 
 bot = telebot.TeleBot(TOKEN)
 

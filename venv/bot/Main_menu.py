@@ -53,7 +53,7 @@ def terrein_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     terrein_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Terrein, type="photo"),
+        media=types.InputMedia(media=open('pictures/Террейн/main.JPG', 'rb'), caption=Terrein, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=terrein_inline)
 
@@ -66,7 +66,7 @@ def accesorios_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     accesorios_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Accesorios, type="photo"),
+        media=types.InputMedia(media=open('pictures/Аксессуары/main.JPG', 'rb'), caption=Accesorios, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=accesorios_inline)
 
@@ -82,7 +82,7 @@ def order_menu(callback):
     x = select_order(callback)
     order_inline.add(make_order,delete_order, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=f'Ваш заказ: {x}', type="photo"),
+        media=types.InputMedia(media=open('pictures/Корзина/main.jpg', 'rb'), caption=f'Ваш заказ: {x}', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=order_inline)
 
@@ -132,7 +132,7 @@ def order_pay_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     order_pay_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Order_pay, type="photo"),
+        media=types.InputMedia(media=open('pictures/Доставка и оплата/main.png', 'rb'), caption=Order_pay, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=order_pay_inline)
 
@@ -145,7 +145,7 @@ def about_us_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     about_us_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=About_us, type="photo"),
+        media=types.InputMedia(media=open('pictures/О нас/main.JPG', 'rb'), caption=About_us, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=about_us_inline)
 
@@ -158,6 +158,6 @@ def addons_menu(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='main_menu')
     addons_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Addons, type="photo"),
+        media=types.InputMedia(media=open('pictures/Дополнительно/main.JPG', 'rb'), caption=Addons, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=addons_inline)

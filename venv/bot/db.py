@@ -1,7 +1,6 @@
 import psycopg2
-from config import host, user, password, db_name
+from config import host, user, password, db_name, TOKEN
 import telebot
-from config import TOKEN
 from send_email_message import send_email
 
 bot = telebot.TeleBot(TOKEN)
@@ -432,7 +431,7 @@ def check_order(callback):
 
         with connection.cursor() as cursor:
             cursor.execute(
-                f'''SELECT item_index FROM users WHERE item_index IS NOT null;'''
+                f'''SELECT item_index FROM users WHERE item_index IS NOT null AND user_id = '{callback.from_user.id}';'''
             )
             return cursor.fetchone()
 

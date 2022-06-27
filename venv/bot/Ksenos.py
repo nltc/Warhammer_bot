@@ -26,7 +26,7 @@ def ksenos_main(callback):
     menu = types.InlineKeyboardButton(text='Назад ', callback_data='warhammer_menu')
     ksenos_inline.add(aeldari, drukhari, genokradi, necroni, orks, tau, tiranidi, menu)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Ksenos, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/main.jpg', 'rb'), caption=Ksenos, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=ksenos_inline)
 
@@ -42,7 +42,7 @@ def aeldari_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     aeldari_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Aeldari, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Аэльдари/main.png', 'rb'), caption=Aeldari, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=aeldari_inline)
 
@@ -55,7 +55,7 @@ def aeldari_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='aeldari_main')
     aeldari_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Aeldari_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Аэльдари/Техника/main.jpg', 'rb'), caption=Aeldari_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=aeldari_technics_inline)
 
@@ -68,7 +68,7 @@ def aeldari_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='aeldari_main')
     aeldari_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Aeldari_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Аэльдари/Отряды/main.jpg', 'rb'), caption=Aeldari_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=aeldari_squads_inline)
 
@@ -81,7 +81,7 @@ def aeldari_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='aeldari_main')
     aeldari_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Aeldari_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Аэльдари/Персонажи/main.jpg', 'rb'), caption=Aeldari_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=aeldari_characters_inline)
 
@@ -97,7 +97,7 @@ def drukhari_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     drukhari_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Drukhari, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Друкхари/main.jpg', 'rb'), caption=Drukhari, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=drukhari_inline)
 
@@ -110,7 +110,7 @@ def drukhari_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='drukhari_main')
     drukhari_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Drukhari_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Друкхари/Техника/main.jpg', 'rb'), caption=Drukhari_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=drukhari_technics_inline)
 
@@ -123,7 +123,7 @@ def drukhari_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='drukhari_main')
     drukhari_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Drukhari_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Друкхари/Отряды/main.jpg', 'rb'), caption=Drukhari_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=drukhari_squads_inline)
 
@@ -136,7 +136,7 @@ def drukhari_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='drukhari_main')
     drukhari_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Drukhari_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Друкхари/Персонажи/main.jpg', 'rb'), caption=Drukhari_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=drukhari_characters_inline)
 
@@ -152,7 +152,7 @@ def genokradi_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     genokradi_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Genokradi, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Культ генокрадов/main.jpg', 'rb'), caption=Genokradi, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=genokradi_inline)
 
@@ -165,7 +165,7 @@ def genokradi_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='genokradi_main')
     genokradi_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Genokradi_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Культ генокрадов/Техника/main.jpg', 'rb'), caption=Genokradi_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=genokradi_technics_inline)
 
@@ -178,7 +178,7 @@ def genokradi_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='genokradi_main')
     genokradi_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Genokradi_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Культ генокрадов/Отряды/main.jpg', 'rb'), caption=Genokradi_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=genokradi_squads_inline)
 
@@ -191,7 +191,7 @@ def genokradi_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='genokradi_main')
     genokradi_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Genokradi_Characters , type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Культ генокрадов/Персонажи/main.jpg', 'rb'), caption=Genokradi_Characters , type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=genokradi_characters_inline)
 
@@ -207,7 +207,7 @@ def necroni_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     necroni_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Necroni, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Некроны/main.jpg', 'rb'), caption=Necroni, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=necroni_inline)
 
@@ -220,7 +220,7 @@ def necroni_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='necroni_main')
     necroni_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Necroni_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Некроны/Техника/main.jpg', 'rb'), caption=Necroni_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=necroni_technics_inline)
 
@@ -233,7 +233,7 @@ def necroni_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='necroni_main')
     necroni_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Necroni_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Некроны/Отряды/main.jpg', 'rb'), caption=Necroni_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=necroni_squads_inline)
 
@@ -246,7 +246,7 @@ def necroni_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='necroni_main')
     necroni_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Necroni_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Некроны/Персонажи/main.jpg', 'rb'), caption=Necroni_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=necroni_characters_inline)
 
@@ -262,7 +262,7 @@ def orks_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     orks_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orks, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Орки/main.jpg', 'rb'), caption=Orks, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orks_inline)
 
@@ -275,7 +275,7 @@ def orks_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orks_main')
     orks_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orks_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Орки/Техника/main.jpg', 'rb'), caption=Orks_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orks_technics_inline)
 
@@ -288,7 +288,7 @@ def orks_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orks_main')
     orks_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orks_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Орки/Отряды/main.jpg', 'rb'), caption=Orks_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orks_squads_inline)
 
@@ -301,7 +301,7 @@ def orks_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='orks_main')
     orks_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Orks_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Орки/Персонажи/main.jpg', 'rb'), caption=Orks_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orks_characters_inline)
 
@@ -317,7 +317,7 @@ def tau_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     tau_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tau, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Империя Тау/main.jpg', 'rb'), caption=Tau, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tau_inline)
 
@@ -330,7 +330,7 @@ def tau_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='tau_main')
     tau_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tau_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Империя Тау/Техника/main.jpg', 'rb'), caption=Tau_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tau_technics_inline)
 
@@ -343,7 +343,7 @@ def tau_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='tau_main')
     tau_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tau_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Империя Тау/Отряды/main.jpg', 'rb'), caption=Tau_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tau_squads_inline)
 
@@ -356,7 +356,7 @@ def tau_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='tau_main')
     tau_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tau_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Империя Тау/Персонажи/main.jpg', 'rb'), caption=Tau_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tau_characters_inline)
 
@@ -371,7 +371,7 @@ def tiranidi_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='ksenos_main')
     tiranidi_inline.add(squads, bugs, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tiranidi, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Тираниды/main.jpg', 'rb'), caption=Tiranidi, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tiranidi_inline)
 
@@ -384,7 +384,7 @@ def tiranidi_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='tiranidi_main')
     tiranidi_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tiranidi_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Тираниды/Отряды/main.jpg', 'rb'), caption=Tiranidi_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tiranidi_squads_inline)
 
@@ -397,6 +397,6 @@ def tiranidi_monstrs(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='tiranidi_main')
     tiranidi_ispolin_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Tiranidi_Monstrs, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии ксеносов/Тираниды/Монстры/main.jpg', 'rb'), caption=Tiranidi_Monstrs, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=tiranidi_ispolin_inline)

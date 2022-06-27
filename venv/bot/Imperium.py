@@ -25,7 +25,7 @@ def imperium_main(callback):
     menu = types.InlineKeyboardButton(text='Назад ', callback_data='warhammer_menu')
     imperium_inline.add(sororitas, kustodes, mechanikus, militarium, knigts, inquisition, menu)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/imperium.png', 'rb'), caption=Imperium, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/main.png', 'rb'), caption=Imperium, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=imperium_inline)
 
@@ -41,7 +41,7 @@ def sororitas_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='imperium_main')
     sororitas_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Adeptus_Sosoritas, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус сороритас/main.jpeg', 'rb'), caption=Adeptus_Sosoritas, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=sororitas_inline)
 
@@ -54,7 +54,7 @@ def sororitas_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='sororitas_main')
     sororitas_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Sosoritas_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус сороритас/Техника/main.jpg', 'rb'), caption=Sosoritas_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=sororitas_technics_inline)
 
@@ -67,7 +67,7 @@ def sororitas_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='sororitas_main')
     sororitas_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Sosoritas_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус сороритас/Отряды/main.jpg', 'rb'), caption=Sosoritas_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=sororitas_squads_inline)
 
@@ -81,7 +81,7 @@ def sororitas_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='sororitas_main')
     sororitas_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Sosoritas_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус сороритас/Персонажи/main.jpg', 'rb'), caption=Sosoritas_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=sororitas_characters_inline)
 
@@ -97,7 +97,7 @@ def kustodes_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='imperium_main')
     kustodes_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Adeptus_Kustodes, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус кустодес/main.jpg', 'rb'), caption=Adeptus_Kustodes, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kustodes_inline)
 
@@ -110,7 +110,7 @@ def kustodes_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kustodes_main')
     kustodes_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kustodes_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус кустодес/Техника/main.jpg', 'rb'), caption=Kustodes_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kustodes_technics_inline)
 
@@ -123,7 +123,7 @@ def kustodes_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kustodes_main')
     kustodes_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kustodes_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус кустодес/Отряды/main.jpg', 'rb'), caption=Kustodes_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kustodes_squads_inline)
 
@@ -137,7 +137,7 @@ def kustodes_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kustodes_main')
     kustodes_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kustodes_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус кустодес/Персонажи/main.jpg', 'rb'), caption=Kustodes_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kustodes_characters_inline)
 
@@ -152,7 +152,7 @@ def mechanikus_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='imperium_main')
     mechanikus_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Adeptus_Mechanikus, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус механикус/main.jpg', 'rb'), caption=Adeptus_Mechanikus, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup= mechanikus_inline)
 
@@ -165,7 +165,7 @@ def mechanikus_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='mechanikus_main')
     mechanikus_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Mechanikus_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус механикус/Техника/main.jpg', 'rb'), caption=Mechanikus_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=mechanikus_technics_inline)
 
@@ -178,7 +178,7 @@ def mechanikus_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='mechanikus_main')
     mechanikus_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Mechanikus_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус механикус/Отряды/main.jpg', 'rb'), caption=Mechanikus_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=mechanikus_squads_inline)
 
@@ -192,14 +192,14 @@ def mechanikus_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='mechanikus_main')
     mechanikus_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Mechanikus_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Адептус механикус/Персонажи/main.jpg', 'rb'), caption=Mechanikus_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=mechanikus_characters_inline)
 
 
 def militarium_main(callback):
 
-    '''Меню Адептус Милитарус'''
+    '''Меню Астра Милитарум'''
 
     militarium_inline = types.InlineKeyboardMarkup(row_width=1)
     technics = types.InlineKeyboardButton(text='Техника', callback_data='militarium_technics')
@@ -209,33 +209,33 @@ def militarium_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='imperium_main')
     militarium_inline.add(technics, squads, characters, upgrade, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Astra_Militarum, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Астра милитарум/main.jpg', 'rb'), caption=Astra_Militarum, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=militarium_inline)
 
 
 def militarium_technics(callback):
 
-    '''Техника Адептус Милитарум'''
+    '''Техника Астра Милитарум'''
 
     militarium_technics_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='militarium_main')
     militarium_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Militarum_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Астра милитарум/Техника/main.jpg', 'rb'), caption=Militarum_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=militarium_technics_inline)
 
 
 def militarium_squads(callback):
 
-    '''Отряды Адептус Милитарум'''
+    '''Отряды Астра Милитарум'''
 
     militarium_squads_inline = types.InlineKeyboardMarkup(row_width=1)
     back = types.InlineKeyboardButton(text='Назад', callback_data='militarium_main')
     militarium_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Militarum_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Астра милитарум/Отряды/main.jpg', 'rb'), caption=Militarum_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=militarium_squads_inline)
 
@@ -249,7 +249,7 @@ def militarium_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='militarium_main')
     militarium_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Militarum_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Астра милитарум/Персонажи/main.jpg', 'rb'), caption=Militarum_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=militarium_characters_inline)
 
@@ -262,14 +262,14 @@ def militarium_upgrade(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='militarium_main')
     militarium_upgrade_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Militarum_Upgrade, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Астра милитарум/Наборы апгрейда/main.jpg', 'rb'), caption=Militarum_Upgrade, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=militarium_upgrade_inline)
 
 
 def knigts_main(callback):
 
-    '''Меню Имперских рыцарец'''
+    '''Меню Имперских рыцарей'''
 
     knigts_inline = types.InlineKeyboardMarkup(row_width=4)
     knigt_15001 = types.InlineKeyboardButton(text='15001', callback_data='knigts_15001')
@@ -287,7 +287,7 @@ def knigts_main(callback):
     knigts_inline.add(knigt_15001, knigt_15002, knigt_15003, knigt_15004, knigt_15005, knigt_15006, knigt_15007,
                       knigt_15008, knigt_15009, knigt_15010, knigt_15011, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Knigts, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/main.jpg', 'rb'), caption=Knigts, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_inline)
 
@@ -297,7 +297,7 @@ def knigts_15001(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15001_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15001.jpg', 'rb'), caption='Индекс: 15001\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15001.jpg', 'rb'), caption='Индекс: 15001\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15001_inline)
 
@@ -312,7 +312,7 @@ def knigts_15002(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15002_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15002.jpg', 'rb'), caption='Индекс: 15002\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15002.jpg', 'rb'), caption='Индекс: 15002\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15002_inline)
 
@@ -327,7 +327,7 @@ def knigts_15003(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15003_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15003.jpg', 'rb'), caption='Индекс: 15003\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15003.jpg', 'rb'), caption='Индекс: 15003\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15003_inline)
 
@@ -342,7 +342,7 @@ def knigts_15004(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15004_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15004.jpg', 'rb'), caption='Индекс: 15004\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15004.jpg', 'rb'), caption='Индекс: 15004\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15004_inline)
 
@@ -357,7 +357,7 @@ def knigts_15005(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15005_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15005.jpg', 'rb'), caption='Индекс: 15005\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15005.jpg', 'rb'), caption='Индекс: 15005\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15005_inline)
 
@@ -372,7 +372,7 @@ def knigts_15006(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15006_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15006.jpg', 'rb'), caption='Индекс: 15006\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15006.jpg', 'rb'), caption='Индекс: 15006\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15006_inline)
 
@@ -387,7 +387,7 @@ def knigts_15007(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15007_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15007.jpg', 'rb'), caption='Индекс: 15007\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15007.jpg', 'rb'), caption='Индекс: 15007\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15007_inline)
 
@@ -402,7 +402,7 @@ def knigts_15008(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15008_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15008.jpg', 'rb'), caption='Индекс: 15008\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15008.jpg', 'rb'), caption='Индекс: 15008\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15008_inline)
 
@@ -417,7 +417,7 @@ def knigts_15009(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15009_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15009.jpg', 'rb'), caption='Индекс: 15009\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15009.jpg', 'rb'), caption='Индекс: 15009\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15009_inline)
 
@@ -432,7 +432,7 @@ def knigts_15010(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15010_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15010.jpg', 'rb'), caption='Индекс: 15010\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15010.jpg', 'rb'), caption='Индекс: 15010\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15010_inline)
 
@@ -447,7 +447,7 @@ def knigts_15011(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
     knigts_15011_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Имперские рыцари/15011.jpg', 'rb'), caption='Индекс: 15011\nЦена: 4999 руб.', type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Имперские рыцари/15011.jpg', 'rb'), caption='Индекс: 15011\nЦена: 4999 руб.', type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knigts_15011_inline)
 
@@ -464,7 +464,7 @@ def inquisition_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='imperium_main')
     inquisition_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Inquisition, type="photo"),
+        media=types.InputMedia(media=open('pictures/Силы Империума/Инквизиция/main.jpeg', 'rb'), caption=Inquisition, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=inquisition_inline)
 

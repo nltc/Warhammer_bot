@@ -24,7 +24,7 @@ def chaos_main(callback):
     menu = types.InlineKeyboardButton(text='Назад', callback_data='warhammer_menu')
     chaos_inline.add(demons, knights_chaos, kosmo_chaos, guard_death, thousand_sons,upgrade, menu)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Chaos, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/main.gif', 'rb'), caption=Chaos, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=chaos_inline)
 
@@ -39,7 +39,7 @@ def demons_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     demons_inline.add(squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Demons, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Демоны хаоса/main.jpg', 'rb'), caption=Demons, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=demons_inline)
 
@@ -51,7 +51,7 @@ def demons_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='demons_main')
     demons_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Demons_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Демоны хаоса/Отряды/main.jpg', 'rb'), caption=Demons_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=demons_squads_inline)
 
@@ -64,7 +64,7 @@ def demons_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='demons_main')
     demons_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Demons_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Демоны хаоса/Персонажи/main.jpg', 'rb'), caption=Demons_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=demons_characters_inline)
 
@@ -85,7 +85,7 @@ def knights_chaos_main(callback):
     knights_inline.add(knights_chaos_22001, knights_chaos_22002, knights_chaos_22003, knights_chaos_22004, knights_chaos_22005,
                         knights_chaos_22006, knights_chaos_22007,back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Knigts_Chaos, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/main.jpg', 'rb'), caption=Knigts_Chaos, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_inline)
 
@@ -96,7 +96,7 @@ def knights_chaos_22001(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22001_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22001.jpg', 'rb'), caption='Индекс: 22001\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22001.jpg', 'rb'), caption='Индекс: 22001\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22001_inline)
@@ -113,7 +113,7 @@ def knights_chaos_22002(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22002_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22002.jpg', 'rb'), caption='Индекс: 22002\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22002.jpg', 'rb'), caption='Индекс: 22002\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22002_inline)
@@ -129,7 +129,7 @@ def knights_chaos_22003(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22003_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22003.jpg', 'rb'), caption='Индекс: 22003\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22003.jpg', 'rb'), caption='Индекс: 22003\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22003_inline)
@@ -145,7 +145,7 @@ def knights_chaos_22004(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22004_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22004.jpg', 'rb'), caption='Индекс: 22004\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22004.jpg', 'rb'), caption='Индекс: 22004\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22004_inline)
@@ -161,7 +161,7 @@ def knights_chaos_22005(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22005_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22005.jpg', 'rb'), caption='Индекс: 22005\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22005.jpg', 'rb'), caption='Индекс: 22005\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22005_inline)
@@ -177,7 +177,7 @@ def knights_chaos_22006(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22006_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22006.jpg', 'rb'), caption='Индекс: 22006\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22006.jpg', 'rb'), caption='Индекс: 22006\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22006_inline)
@@ -193,7 +193,7 @@ def knights_chaos_22007(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
     knights_chaos_22007_inline.add(add, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('Рыцари хаоса/22007.jpg', 'rb'), caption='Индекс: 22007\nЦена: 4999 руб.',
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Рыцари хаоса/22007.jpg', 'rb'), caption='Индекс: 22007\nЦена: 4999 руб.',
                                type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=knights_chaos_22007_inline)
@@ -215,7 +215,7 @@ def kosmo_chaos_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     kosmo_chaos_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kosmo_Chaos, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Космодесант хаоса/main.jpg', 'rb'), caption=Kosmo_Chaos, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_chaos_inline)
 
@@ -228,7 +228,7 @@ def kosmo_chaos_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kosmo_Chaos_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Космодесант хаоса/Техника/main.jpg', 'rb'), caption=Kosmo_Chaos_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_chaos_technics_inline)
 
@@ -241,7 +241,7 @@ def kosmo_chaos_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kosmo_Chaos_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Космодесант хаоса/Отряды/main.jpg', 'rb'), caption=Kosmo_Chaos_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_chaos_squads_inline)
 
@@ -254,7 +254,7 @@ def kosmo_chaos_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='kosmo_chaos_main')
     kosmo_chaos_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Kosmo_Chaos_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Космодесант хаоса/Персонажи/main.png', 'rb'), caption=Kosmo_Chaos_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=kosmo_chaos_characters_inline)
 
@@ -269,7 +269,7 @@ def guard_death_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     guard_death_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Guard_Death, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Гвардия смерти/main.jpg', 'rb'), caption=Guard_Death, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=guard_death_inline)
 
@@ -282,7 +282,7 @@ def guard_death_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Guard_Death_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Гвардия смерти/Техника/main.jpg', 'rb'), caption=Guard_Death_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=guard_death_technics_inline)
 
@@ -295,7 +295,7 @@ def guard_death_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Guard_Death_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Гвардия смерти/Отряды/main.png', 'rb'), caption=Guard_Death_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=guard_death_squads_inline)
 
@@ -308,7 +308,7 @@ def guard_death_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='guard_death_main')
     guard_death_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Guard_Death_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Гвардия смерти/Персонажи/main.png', 'rb'), caption=Guard_Death_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=guard_death_characters_inline)
 
@@ -323,7 +323,7 @@ def thousand_sons_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     thousand_sons_inline.add(technics, squads, characters, back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Thousand_Sons, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Тысяча сынов/main.jpg', 'rb'), caption=Thousand_Sons, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_inline)
 
@@ -336,7 +336,7 @@ def thousand_sons_technics(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_technics_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Thousand_Sons_Technics, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Тысяча сынов/Техника/main.jpg', 'rb'), caption=Thousand_Sons_Technics, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_technics_inline)
 
@@ -349,7 +349,7 @@ def thousand_sons_squads(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_squads_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Thousand_Sons_Squads, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Тысяча сынов/Отряды/main.jpg', 'rb'), caption=Thousand_Sons_Squads, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_squads_inline)
 
@@ -362,7 +362,7 @@ def thousand_sons_characters(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='thousand_sons_main')
     thousand_sons_characters_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Thousand_Sons_Characters, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Тысяча сынов/Персонажи/main.jpg', 'rb'), caption=Thousand_Sons_Characters, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=thousand_sons_characters_inline)
 
@@ -375,7 +375,7 @@ def upgrade_main(callback):
     back = types.InlineKeyboardButton(text='Назад', callback_data='chaos_main')
     upgrade_main_inline.add(back)
     bot.edit_message_media(
-        media=types.InputMedia(media=open('pictures/start.png', 'rb'), caption=Chaos_Upgrade, type="photo"),
+        media=types.InputMedia(media=open('pictures/Армии Хаоса/Наборы апгрейда/main.jpg', 'rb'), caption=Chaos_Upgrade, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=upgrade_main_inline)
 
