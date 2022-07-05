@@ -7,6 +7,8 @@ from send_email_message import send_email
 bot = telebot.TeleBot(TOKEN)
 
 
+
+
 def main():
 
     '''Создание базы данных'''
@@ -44,17 +46,14 @@ def main():
             print(f'База данных создана успешно')
 
     except Exception as e:
-        print('[INFO]', e)
+        print('main', e)
 
     finally:
         if connection:
             connection.close()
 
 
-def add_to_db(message):
-
-    '''Добавление пользователя в базу данных'''
-
+def connect_to_db(host, user, password, db_name):
     try:
         connection = psycopg2.connect(
             host = host,
@@ -65,19 +64,29 @@ def add_to_db(message):
 
         connection.autocommit = True
 
-        with connection.cursor() as cursor:
+        return connection
+    except Exception as e:
+        print('connect_to_db', e)
+
+
+global connect
+connect = connect_to_db(host, user, password, db_name)
+
+
+def add_to_db(message):
+
+    '''Добавление пользователя в базу данных'''
+
+    try:
+
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''INSERT INTO users (first_name, user_id) VALUES
                 ('{message.from_user.first_name} ', '{message.from_user.id}')'''
             )
 
-
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('add_to_db', e)
 
 
 def add_to_order(callback, index):
@@ -85,26 +94,14 @@ def add_to_order(callback, index):
     '''Добавление товара в корзину'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET item_index = CONCAT(item_index, '{index}') WHERE user_id = '{callback.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('add_to_order', e)
 
 
 def select_order(callback):
@@ -112,16 +109,8 @@ def select_order(callback):
     '''Показ товара из корзины'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT item_index from users WHERE user_id = {callback.from_user.id}'''
             )
@@ -129,12 +118,8 @@ def select_order(callback):
             return ''.join(list(cursor.fetchone()))[:-2]
 
     except Exception as e:
-        print('[INFO]', e)
+        print('select_order', e)
         return ''
-
-    finally:
-        if connection:
-            connection.close()
 
 
 def delete_user_order(callback):
@@ -142,26 +127,14 @@ def delete_user_order(callback):
     '''Удаление всех товаров из корзины'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET item_index = NULL WHERE user_id = '{callback.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('delete_user_order', e)
 
 
 def delete_user(message):
@@ -169,26 +142,14 @@ def delete_user(message):
     '''Удаление пользователя из базы данных'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''DELETE FROM users WHERE user_id = '{message.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('delete_user', e)
 
 
 def check_tg_link(callback):
@@ -196,16 +157,8 @@ def check_tg_link(callback):
     '''Проверка, есть ли ссылка на телеграм'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT tg_link FROM users WHERE user_id = '{callback.from_user.id}' AND tg_link IS NOT null;'''
             )
@@ -213,11 +166,7 @@ def check_tg_link(callback):
             return cursor.fetchone()
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('check_tg_link', e)
 
 
 def add_tg_link(message):
@@ -225,26 +174,14 @@ def add_tg_link(message):
     '''Добавление ссылки на телеграм в базу данных'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET tg_link = '{message.text}' WHERE user_id = '{message.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('add_tg_link', e)
 
 
 def check_vk_link(callback):
@@ -252,16 +189,8 @@ def check_vk_link(callback):
     '''Проверка, есть ли ссылка на вк'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT vk_link FROM users WHERE user_id = '{callback.from_user.id}' AND vk_link IS NOT null;'''
             )
@@ -269,11 +198,7 @@ def check_vk_link(callback):
             return cursor.fetchone()
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('check_vk_link', e)
 
 
 def add_vk_link(message):
@@ -281,26 +206,14 @@ def add_vk_link(message):
     '''Добавление ссылки на вк в базу данных'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET vk_link = '{message.text}' WHERE user_id = '{message.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('add_vk_link', e)
 
 
 def check_email(callback):
@@ -308,16 +221,8 @@ def check_email(callback):
     '''Проверка, есть ли почта'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT email FROM users WHERE user_id = '{callback.from_user.id}' AND email IS NOT null;'''
             )
@@ -325,11 +230,7 @@ def check_email(callback):
             return cursor.fetchone()
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('check_email', e)
 
 
 def add_email(message):
@@ -337,26 +238,14 @@ def add_email(message):
     '''Добавление почты в базу данных'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET email = '{message.text}' WHERE user_id = '{message.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('add_email', e)
 
 
 def check_phone_number(callback):
@@ -364,16 +253,8 @@ def check_phone_number(callback):
     '''Проверка, есть ли номер телефона'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT phone_number FROM users WHERE user_id = '{callback.from_user.id}' AND tg_link IS NOT null;'''
             )
@@ -381,55 +262,31 @@ def check_phone_number(callback):
             return cursor.fetchone()
 
     except Exception as e:
-        print('[INFO]', e)
+        print('check_phone_number', e)
 
-    finally:
-        if connection:
-            connection.close()
-            
             
 def add_phone_number(message):
 
     '''Добавление телефона в базу данных'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''UPDATE users SET phone_number = '{message.text}' WHERE user_id = '{message.from_user.id}';'''
             )
 
     except Exception as e:
-        print('[INFO]', e)
+        print('add_phone_number', e)
 
-    finally:
-        if connection:
-            connection.close()
-            
 
 def check_order(callback):
 
     '''Проверка, есть ли товар в корзине'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT item_index FROM users WHERE item_index IS NOT null AND user_id = '{callback.from_user.id}';'''
             )
@@ -437,11 +294,7 @@ def check_order(callback):
 
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('check_order', e)
 
 
 def send_order_with_tg(callback):
@@ -449,16 +302,8 @@ def send_order_with_tg(callback):
     '''Отправка готового заказа на почту'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT first_name, item_index, tg_link FROM users WHERE user_id = '{callback.from_user.id}';'''
             )
@@ -467,11 +312,7 @@ def send_order_with_tg(callback):
             send_email(order)
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('send_order_with_tg', e)
 
 
 def send_order_with_vk(callback):
@@ -479,16 +320,8 @@ def send_order_with_vk(callback):
     '''Отправка готового заказа на почту'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT first_name, item_index, vk_link FROM users WHERE user_id = '{callback.from_user.id}';'''
             )
@@ -498,11 +331,7 @@ def send_order_with_vk(callback):
 
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('send_order_with_vk', e)
 
 
 def send_order_with_email(callback):
@@ -510,16 +339,8 @@ def send_order_with_email(callback):
     '''Отправка готового заказа на почту'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT first_name, item_index, email FROM users WHERE user_id = '{callback.from_user.id}';'''
             )
@@ -529,11 +350,7 @@ def send_order_with_email(callback):
 
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('send_order_with_email', e)
 
 
 def send_order_with_phone(callback):
@@ -541,16 +358,8 @@ def send_order_with_phone(callback):
     '''Отправка готового заказа на почту'''
 
     try:
-        connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
 
-        connection.autocommit = True
-
-        with connection.cursor() as cursor:
+        with connect.cursor() as cursor:
             cursor.execute(
                 f'''SELECT first_name, item_index, phone_number FROM users WHERE user_id = '{callback.from_user.id}';'''
             )
@@ -559,11 +368,7 @@ def send_order_with_phone(callback):
             send_email(order)
 
     except Exception as e:
-        print('[INFO]', e)
-
-    finally:
-        if connection:
-            connection.close()
+        print('send_order_with_phone', e)
 
 
 if __name__ == '__main__':
