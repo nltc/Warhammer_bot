@@ -10,7 +10,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def main_menu(callback):
-
     '''Главное меню'''
 
     markup_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -29,7 +28,6 @@ def main_menu(callback):
 
 
 def warhammer_menu(callback):
-
     '''Меню Warhammer'''
 
     warhammer_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -46,7 +44,6 @@ def warhammer_menu(callback):
 
 
 def terrein_menu(callback):
-
     '''Меню террейна'''
 
     terrein_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -59,7 +56,6 @@ def terrein_menu(callback):
 
 
 def accesorios_menu(callback):
-
     '''Меню аксессуаров'''
 
     accesorios_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -72,7 +68,6 @@ def accesorios_menu(callback):
 
 
 def order_menu(callback):
-
     '''Меню заказа'''
 
     order_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -88,7 +83,6 @@ def order_menu(callback):
 
 
 def make_order(callback):
-
     '''Оформление заказа'''
 
     if check_tg_link(callback) and check_order(callback):
@@ -119,7 +113,6 @@ def make_order(callback):
 
 
 def delete_order(callback):
-
     '''Очистка корзины'''
 
     delete_user_order(callback)
@@ -127,7 +120,6 @@ def delete_order(callback):
 
 
 def order_pay_menu(callback):
-
     '''Доставка и оплата'''
 
     order_pay_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -140,7 +132,6 @@ def order_pay_menu(callback):
 
 
 def about_us_menu(callback):
-
     '''О нас'''
 
     about_us_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -153,7 +144,6 @@ def about_us_menu(callback):
 
 
 def addons_menu(callback):
-
     '''Дополнительно'''
 
     addons_inline = types.InlineKeyboardMarkup(row_width=1)

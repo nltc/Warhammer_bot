@@ -11,7 +11,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def chaos_main(callback):
-
     '''Меню армии хаоса'''
 
     chaos_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -30,7 +29,6 @@ def chaos_main(callback):
 
 
 def demons_main(callback):
-
     '''Меню демонов'''
 
     demons_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -45,7 +43,6 @@ def demons_main(callback):
 
 
 def demons_squads(callback):
-
     '''Отряды демонов'''
 
     demons_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -58,7 +55,6 @@ def demons_squads(callback):
 
 
 def demons_characters(callback):
-
     '''Персонажи демонов'''
 
     demons_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -71,7 +67,6 @@ def demons_characters(callback):
 
 
 def knights_chaos_main(callback):
-
     '''Меню рыцарей хаоса'''
 
     knights_inline = types.InlineKeyboardMarkup(row_width=4)
@@ -92,6 +87,8 @@ def knights_chaos_main(callback):
 
 
 def knights_chaos_22001(callback):
+    '''Рыцарь хаоса 22001'''
+
     knights_chaos_22001_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22001')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -103,12 +100,16 @@ def knights_chaos_22001(callback):
         reply_markup=knights_chaos_22001_inline)
 
 def add_22001(callback):
+    '''Добавление в корзину рыцаря хаоса 22001'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22001, ')
 
 
 
 def knights_chaos_22002(callback):
+    '''Рыцарь хаоса 22002'''
+
     knights_chaos_22002_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22002')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -120,11 +121,15 @@ def knights_chaos_22002(callback):
         reply_markup=knights_chaos_22002_inline)
 
 def add_22002(callback):
+    '''Добавление в корзину рыцаря хаоса 22002'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22002, ')
 
 
 def knights_chaos_22003(callback):
+    '''Рыцарь хаоса 22003'''
+
     knights_chaos_22003_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22003')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -136,11 +141,15 @@ def knights_chaos_22003(callback):
         reply_markup=knights_chaos_22003_inline)
 
 def add_22003(callback):
+    '''Добавление в корзину рыцаря хаоса 22003'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22003, ')
 
 
 def knights_chaos_22004(callback):
+    '''Рыцарь хаоса 22004'''
+
     knights_chaos_22004_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22004')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -152,11 +161,15 @@ def knights_chaos_22004(callback):
         reply_markup=knights_chaos_22004_inline)
 
 def add_22004(callback):
+    '''Добавление в корзину рыцаря хаоса 22004'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22004, ')
 
 
 def knights_chaos_22005(callback):
+    '''Рыцарь хаоса 22005'''
+
     knights_chaos_22005_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22005')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -168,11 +181,15 @@ def knights_chaos_22005(callback):
         reply_markup=knights_chaos_22005_inline)
 
 def add_22005(callback):
+    '''Добавление в корзину рыцаря хаоса 22005'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22005, ')
 
 
 def knights_chaos_22006(callback):
+    '''Рыцарь хаоса 22006'''
+
     knights_chaos_22006_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22006')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -184,11 +201,15 @@ def knights_chaos_22006(callback):
         reply_markup=knights_chaos_22006_inline)
 
 def add_22006(callback):
+    '''Добавление в корзину рыцаря хаоса 22006'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22006, ')
 
 
 def knights_chaos_22007(callback):
+    '''Рыцарь хаоса 22007'''
+
     knights_chaos_22007_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_22007')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knights_chaos_main')
@@ -200,12 +221,13 @@ def knights_chaos_22007(callback):
         reply_markup=knights_chaos_22007_inline)
 
 def add_22007(callback):
+    '''Добавление в корзину рыцаря хаоса 22007'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '22007, ')
 
 
 def kosmo_chaos_main(callback):
-
     '''Меню космодесанта хаоса'''
 
     kosmo_chaos_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -221,7 +243,6 @@ def kosmo_chaos_main(callback):
 
 
 def kosmo_chaos_technics(callback):
-
     '''Техника космодесанта хаоса'''
 
     kosmo_chaos_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -234,7 +255,6 @@ def kosmo_chaos_technics(callback):
 
 
 def kosmo_chaos_squads(callback):
-
     '''Отряды космодесанта хаоса'''
 
     kosmo_chaos_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -247,7 +267,6 @@ def kosmo_chaos_squads(callback):
 
 
 def kosmo_chaos_characters(callback):
-
     '''Персонажи космодесанта хаоса'''
 
     kosmo_chaos_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -260,7 +279,6 @@ def kosmo_chaos_characters(callback):
 
 
 def guard_death_main(callback):
-
     '''Меню гвардии смерти'''
 
     guard_death_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -276,7 +294,6 @@ def guard_death_main(callback):
 
 
 def guard_death_technics(callback):
-
     '''Техника гвардии смерти'''
 
     guard_death_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -289,7 +306,6 @@ def guard_death_technics(callback):
 
 
 def guard_death_squads(callback):
-
     '''Отряды гвардии смерти'''
 
     guard_death_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -302,7 +318,6 @@ def guard_death_squads(callback):
 
 
 def guard_death_characters(callback):
-
     '''Персонажи гвардии смерти'''
 
     guard_death_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -315,7 +330,6 @@ def guard_death_characters(callback):
 
 
 def thousand_sons_main(callback):
-
     '''Меню тысячи сынов'''
 
     thousand_sons_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -331,7 +345,6 @@ def thousand_sons_main(callback):
 
 
 def thousand_sons_technics(callback):
-
     '''Техника тысячи сынов'''
 
     thousand_sons_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -344,7 +357,6 @@ def thousand_sons_technics(callback):
 
 
 def thousand_sons_squads(callback):
-
     '''Отряды тысячи сынов'''
 
     thousand_sons_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -357,7 +369,6 @@ def thousand_sons_squads(callback):
 
 
 def thousand_sons_characters(callback):
-
     '''Персонажи тысячи сынов'''
 
     thousand_sons_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -370,7 +381,6 @@ def thousand_sons_characters(callback):
 
 
 def upgrade_main(callback):
-
     '''Меню наборов апргейда'''
 
     upgrade_main_inline = types.InlineKeyboardMarkup(row_width=1)

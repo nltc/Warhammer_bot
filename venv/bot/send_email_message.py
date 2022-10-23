@@ -8,7 +8,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def send_email(message):
-
     '''Отправка письма с заказом на почту'''
 
     sender = FROM_EMAIL

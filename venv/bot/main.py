@@ -13,8 +13,6 @@ import re
 
 
 bot = telebot.TeleBot(TOKEN)
-
-
 tg_pattern = re.compile('(http|https):\/\/t.me\/(([^_])([A-Za-z]{4,32})([^_]))')
 # vk_pattern = re.compile('(http|https):\/\/vk.com\/(([^_])([A-Za-z]{4,32})([^_]))')
 vk_pattern = re.compile('@(([^_])([A-Za-z]{4,32})([^_]))')
@@ -23,6 +21,8 @@ email_pattern = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    '''Стартовое меню'''
+    
     delete_user(message)
     markup_inline = types.InlineKeyboardMarkup(row_width=1)
     warhammer = types.InlineKeyboardButton(text='Warhammer 40K', callback_data='warhammer_menu')
@@ -39,7 +39,6 @@ def start(message):
 
 @bot.message_handler(content_types=["text"])
 def user_order(message):
-
     '''Проверка валидности номера телефона, подходит ли текст пользователя шаблонам телеграм, вк или почты'''
 
     if tg_pattern.match(message.text) is not None:
@@ -194,7 +193,6 @@ def main(callback):
         inline_callback[callback.data](callback)
     except Exception as e:
         print(e)
-
 
 
 bot.infinity_polling()

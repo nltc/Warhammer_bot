@@ -9,7 +9,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def kosmo_main(callback):
-
     '''Меню Космодесанта'''
 
     kosmo_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -24,7 +23,6 @@ def kosmo_main(callback):
 
 
 def kosmo_units(callback):
-
     '''Меню общих юнитов'''
 
     kosmo_units_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -40,7 +38,6 @@ def kosmo_units(callback):
 
 
 def kosmo_units_technics(callback):
-
     '''Техника общих юнитов'''
 
     kosmo_units_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -53,7 +50,6 @@ def kosmo_units_technics(callback):
 
 
 def kosmo_squads(callback):
-
     '''Отряды общих юнитов'''
 
     kosmo_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -66,7 +62,6 @@ def kosmo_squads(callback):
 
 
 def kosmo_characters(callback):
-
     '''Персонажи общих юнитов'''
 
     kosmo_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -79,7 +74,6 @@ def kosmo_characters(callback):
 
 
 def orden_kosmo(callback):
-
     '''Меню отдельных орденов'''
 
     kosmo_orden_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -96,7 +90,6 @@ def orden_kosmo(callback):
 
 
 def orden_technics(callback):
-
     '''Техника отдельных орденов'''
 
     kosmo_orden_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -109,7 +102,6 @@ def orden_technics(callback):
 
 
 def orden_squads(callback):
-
     '''Отряды отдельных орденов'''
 
     orden_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -122,7 +114,6 @@ def orden_squads(callback):
 
 
 def orden_characters(callback):
-
     '''Персонажи отдельных орденов'''
 
     orden_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -135,7 +126,6 @@ def orden_characters(callback):
 
 
 def orden_upgrade(callback):
-
     '''Наборы апргейда отдельных орденов'''
 
     orden_upgrade_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -145,38 +135,3 @@ def orden_upgrade(callback):
         media=types.InputMedia(media=open('pictures/Космодесант/Отдельные ордена/Наборы апгрейда/main.JPG', 'rb'), caption=Orden_Upgrade, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=orden_upgrade_inline)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,7 +12,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def imperium_main(callback):
-
     '''Меню Сил Империума'''
 
     imperium_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -31,7 +30,6 @@ def imperium_main(callback):
 
 
 def sororitas_main(callback):
-
     '''Меню Адептус Сороритас'''
 
     sororitas_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -47,7 +45,6 @@ def sororitas_main(callback):
 
 
 def sororitas_technics(callback):
-
     '''Техника Адептус Сороритас'''
 
     sororitas_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -60,7 +57,6 @@ def sororitas_technics(callback):
 
 
 def sororitas_squads(callback):
-
     '''Отряды Адептус Сороритас'''
 
     sororitas_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -73,7 +69,6 @@ def sororitas_squads(callback):
 
 
 def sororitas_characters(callback):
-
     '''Персонажи Адептус Сороритас'''
 
     sororitas_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -86,7 +81,6 @@ def sororitas_characters(callback):
 
 
 def kustodes_main(callback):
-
     '''Меню Адептус Кустодес'''
 
     kustodes_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -102,7 +96,6 @@ def kustodes_main(callback):
 
 
 def kustodes_technics(callback):
-
     '''Техника Адептус Кустодес'''
 
     kustodes_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -115,7 +108,6 @@ def kustodes_technics(callback):
 
 
 def kustodes_squads(callback):
-
     '''Отряды Адептус Кустодес'''
 
     kustodes_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -128,7 +120,6 @@ def kustodes_squads(callback):
 
 
 def kustodes_characters(callback):
-
     '''Персонажи Адептус Кустодес'''
 
     kustodes_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -141,7 +132,6 @@ def kustodes_characters(callback):
 
 
 def mechanikus_main(callback):
-
     '''Меню Адептус Механикус'''
 
     mechanikus_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -157,7 +147,6 @@ def mechanikus_main(callback):
 
 
 def mechanikus_technics(callback):
-
     '''Техника Адептус Механикус'''
 
     mechanikus_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -170,7 +159,6 @@ def mechanikus_technics(callback):
 
 
 def mechanikus_squads(callback):
-
     '''Отряды Адептус Механикус'''
 
     mechanikus_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -183,7 +171,6 @@ def mechanikus_squads(callback):
 
 
 def mechanikus_characters(callback):
-
     '''Персонажи Адептус Механикус'''
 
     mechanikus_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -196,7 +183,6 @@ def mechanikus_characters(callback):
 
 
 def militarium_main(callback):
-
     '''Меню Астра Милитарум'''
 
     militarium_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -213,7 +199,6 @@ def militarium_main(callback):
 
 
 def militarium_technics(callback):
-
     '''Техника Астра Милитарум'''
 
     militarium_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -226,7 +211,6 @@ def militarium_technics(callback):
 
 
 def militarium_squads(callback):
-
     '''Отряды Астра Милитарум'''
 
     militarium_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -239,7 +223,6 @@ def militarium_squads(callback):
 
 
 def militarium_characters(callback):
-
     '''Персонажи Адептус Милитарум'''
 
     militarium_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -252,7 +235,6 @@ def militarium_characters(callback):
 
 
 def militarium_upgrade(callback):
-
     '''Наборы апгрейда Адептус Милитарус'''
 
     militarium_upgrade_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -265,7 +247,6 @@ def militarium_upgrade(callback):
 
 
 def knigts_main(callback):
-
     '''Меню Имперских рыцарей'''
 
     knigts_inline = types.InlineKeyboardMarkup(row_width=4)
@@ -290,6 +271,8 @@ def knigts_main(callback):
 
 
 def knigts_15001(callback):
+    '''Имперский рыцарь 15001'''
+    
     knigts_15001_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15001')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -300,11 +283,15 @@ def knigts_15001(callback):
         reply_markup=knigts_15001_inline)
 
 def add_15001(callback):
+    '''Добавление в корзину имперского рыцаря 15001'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15001, ')
 
 
 def knigts_15002(callback):
+    '''Имперский рыцарь 15002'''
+    
     knigts_15002_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15002')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -315,11 +302,15 @@ def knigts_15002(callback):
         reply_markup=knigts_15002_inline)
 
 def add_15002(callback):
+    '''Добавление в корзину имперского рыцаря 15002'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15002, ')
 
 
 def knigts_15003(callback):
+    '''Имперский рыцарь 15003'''
+
     knigts_15003_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15003')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -330,11 +321,15 @@ def knigts_15003(callback):
         reply_markup=knigts_15003_inline)
 
 def add_15003(callback):
+    '''Добавление в корзину имперского рыцаря 15003'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15003, ')
 
 
 def knigts_15004(callback):
+    '''Имперский рыцарь 15004'''
+
     knigts_15004_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15004')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -345,11 +340,15 @@ def knigts_15004(callback):
         reply_markup=knigts_15004_inline)
 
 def add_15004(callback):
+    '''Добавление в корзину имперского рыцаря 15004'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15004, ')
 
 
 def knigts_15005(callback):
+    '''Имперский рыцарь 15005'''
+
     knigts_15005_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15005')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -360,11 +359,15 @@ def knigts_15005(callback):
         reply_markup=knigts_15005_inline)
 
 def add_15005(callback):
+    '''Добавление в корзину имперского рыцаря 15005'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15005, ')
 
 
 def knigts_15006(callback):
+    '''Имперский рыцарь 15006'''
+
     knigts_15006_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15006')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -375,11 +378,15 @@ def knigts_15006(callback):
         reply_markup=knigts_15006_inline)
 
 def add_15006(callback):
+    '''Добавление в корзину имперского рыцаря 15006'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15006, ')
 
 
 def knigts_15007(callback):
+    '''Имперский рыцарь 15007'''
+
     knigts_15007_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15007')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -390,11 +397,15 @@ def knigts_15007(callback):
         reply_markup=knigts_15007_inline)
 
 def add_15007(callback):
+    '''Добавление в корзину имперского рыцаря 15007'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15007, ')
 
 
 def knigts_15008(callback):
+    '''Имперский рыцарь 15008'''
+
     knigts_15008_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15008')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -405,11 +416,15 @@ def knigts_15008(callback):
         reply_markup=knigts_15008_inline)
 
 def add_15008(callback):
+    '''Добавление в корзину имперского рыцаря 15008'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15008, ')
 
 
 def knigts_15009(callback):
+    '''Имперский рыцарь 15009'''
+
     knigts_15009_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15009')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -420,11 +435,15 @@ def knigts_15009(callback):
         reply_markup=knigts_15009_inline)
 
 def add_15009(callback):
+    '''Добавление в корзину имперского рыцаря 15009'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15009, ')
 
 
 def knigts_15010(callback):
+    '''Имперский рыцарь 15010'''
+
     knigts_15010_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15010')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -435,11 +454,15 @@ def knigts_15010(callback):
         reply_markup=knigts_15010_inline)
 
 def add_15010(callback):
+    '''Добавление в корзину имперского рыцаря 15010'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15010, ')
 
 
 def knigts_15011(callback):
+    '''Имперский рыцарь 15011'''
+
     knigts_15011_inline = types.InlineKeyboardMarkup(row_width=1)
     add = types.InlineKeyboardButton(text='Добавить в корзину', callback_data='add_15011')
     back = types.InlineKeyboardButton(text='Назад', callback_data='knigts_main')
@@ -450,12 +473,13 @@ def knigts_15011(callback):
         reply_markup=knigts_15011_inline)
 
 def add_15011(callback):
+    '''Добавление в корзину имперского рыцаря 15011'''
+
     bot.answer_callback_query(callback_query_id=callback.id, text="Добавлено в корзину", show_alert=False)
     add_to_order(callback, '15011, ')
 
 
 def inquisition_main(callback):
-
     '''Меню Инквизиции'''
 
     inquisition_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -465,6 +489,3 @@ def inquisition_main(callback):
         media=types.InputMedia(media=open('pictures/Силы Империума/Инквизиция/main.jpeg', 'rb'), caption=Inquisition, type="photo"),
         chat_id=callback.message.chat.id, message_id=callback.message.id,
         reply_markup=inquisition_inline)
-
-
-

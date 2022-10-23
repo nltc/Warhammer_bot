@@ -7,10 +7,7 @@ from send_email_message import send_email
 bot = telebot.TeleBot(TOKEN)
 
 
-
-
 def main():
-
     '''Создание базы данных'''
 
     try:
@@ -54,6 +51,8 @@ def main():
 
 
 def connect_to_db(host, user, password, db_name):
+    '''Подключение к базе данных'''
+    
     try:
         connection = psycopg2.connect(
             host = host,
@@ -74,7 +73,6 @@ connect = connect_to_db(host, user, password, db_name)
 
 
 def add_to_db(message):
-
     '''Добавление пользователя в базу данных'''
 
     try:
@@ -90,7 +88,6 @@ def add_to_db(message):
 
 
 def add_to_order(callback, index):
-
     '''Добавление товара в корзину'''
 
     try:
@@ -105,7 +102,6 @@ def add_to_order(callback, index):
 
 
 def select_order(callback):
-
     '''Показ товара из корзины'''
 
     try:
@@ -123,7 +119,6 @@ def select_order(callback):
 
 
 def delete_user_order(callback):
-
     '''Удаление всех товаров из корзины'''
 
     try:
@@ -138,7 +133,6 @@ def delete_user_order(callback):
 
 
 def delete_user(message):
-
     '''Удаление пользователя из базы данных'''
 
     try:
@@ -153,7 +147,6 @@ def delete_user(message):
 
 
 def check_tg_link(callback):
-
     '''Проверка, есть ли ссылка на телеграм'''
 
     try:
@@ -170,7 +163,6 @@ def check_tg_link(callback):
 
 
 def add_tg_link(message):
-
     '''Добавление ссылки на телеграм в базу данных'''
 
     try:
@@ -185,7 +177,6 @@ def add_tg_link(message):
 
 
 def check_vk_link(callback):
-
     '''Проверка, есть ли ссылка на вк'''
 
     try:
@@ -202,7 +193,6 @@ def check_vk_link(callback):
 
 
 def add_vk_link(message):
-
     '''Добавление ссылки на вк в базу данных'''
 
     try:
@@ -217,7 +207,6 @@ def add_vk_link(message):
 
 
 def check_email(callback):
-
     '''Проверка, есть ли почта'''
 
     try:
@@ -234,7 +223,6 @@ def check_email(callback):
 
 
 def add_email(message):
-
     '''Добавление почты в базу данных'''
 
     try:
@@ -249,7 +237,6 @@ def add_email(message):
 
 
 def check_phone_number(callback):
-
     '''Проверка, есть ли номер телефона'''
 
     try:
@@ -266,7 +253,6 @@ def check_phone_number(callback):
 
             
 def add_phone_number(message):
-
     '''Добавление телефона в базу данных'''
 
     try:
@@ -281,7 +267,6 @@ def add_phone_number(message):
 
 
 def check_order(callback):
-
     '''Проверка, есть ли товар в корзине'''
 
     try:
@@ -298,7 +283,6 @@ def check_order(callback):
 
 
 def send_order_with_tg(callback):
-
     '''Отправка готового заказа на почту'''
 
     try:
@@ -316,7 +300,6 @@ def send_order_with_tg(callback):
 
 
 def send_order_with_vk(callback):
-
     '''Отправка готового заказа на почту'''
 
     try:
@@ -335,7 +318,6 @@ def send_order_with_vk(callback):
 
 
 def send_order_with_email(callback):
-
     '''Отправка готового заказа на почту'''
 
     try:
@@ -354,7 +336,6 @@ def send_order_with_email(callback):
 
 
 def send_order_with_phone(callback):
-
     '''Отправка готового заказа на почту'''
 
     try:
