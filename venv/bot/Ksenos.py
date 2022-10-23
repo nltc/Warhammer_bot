@@ -12,7 +12,6 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def ksenos_main(callback):
-
     '''Меню Ксеносов'''
 
     ksenos_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -32,7 +31,6 @@ def ksenos_main(callback):
 
 
 def aeldari_main(callback):
-
     '''Меню Аэльдари'''
 
     aeldari_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -48,7 +46,6 @@ def aeldari_main(callback):
 
 
 def aeldari_technics(callback):
-
     '''Техника Аэльдари'''
 
     aeldari_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -61,7 +58,6 @@ def aeldari_technics(callback):
 
 
 def aeldari_squads(callback):
-
     '''Отряды Аэльдари'''
 
     aeldari_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -74,7 +70,6 @@ def aeldari_squads(callback):
 
 
 def aeldari_characters(callback):
-
     '''Персонажи Аэльдари'''
 
     aeldari_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -87,7 +82,6 @@ def aeldari_characters(callback):
 
 
 def drukhari_main(callback):
-
     '''Меню Друкхари'''
 
     drukhari_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -103,7 +97,6 @@ def drukhari_main(callback):
 
 
 def drukhari_technics(callback):
-
     '''Техника Друкхари'''
 
     drukhari_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -116,7 +109,6 @@ def drukhari_technics(callback):
 
 
 def drukhari_squads(callback):
-
     '''Отряды Друкхари'''
 
     drukhari_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -129,7 +121,6 @@ def drukhari_squads(callback):
 
 
 def drukhari_characters(callback):
-
     '''Персонажи Друкхари'''
 
     drukhari_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -142,7 +133,6 @@ def drukhari_characters(callback):
 
 
 def genokradi_main(callback):
-
     '''Меню Культа Генокрадов'''
 
     genokradi_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -158,7 +148,6 @@ def genokradi_main(callback):
 
 
 def genokradi_technics(callback):
-
     '''Техника Культа Генокрадов'''
 
     genokradi_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -171,7 +160,6 @@ def genokradi_technics(callback):
 
 
 def genokradi_squads(callback):
-
     '''Отряды Культа Генокрадов'''
 
     genokradi_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -184,7 +172,6 @@ def genokradi_squads(callback):
 
 
 def genokradi_characters(callback):
-
     '''Персонажи Культа Генокрадов'''
 
     genokradi_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -197,7 +184,6 @@ def genokradi_characters(callback):
 
 
 def necroni_main(callback):
-
     '''Меню Некронов'''
 
     necroni_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -213,7 +199,6 @@ def necroni_main(callback):
 
 
 def necroni_technics(callback):
-
     '''Техника Некронов'''
 
     necroni_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -226,7 +211,6 @@ def necroni_technics(callback):
 
 
 def necroni_squads(callback):
-
     '''Отряды Некронов'''
 
     necroni_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -239,7 +223,6 @@ def necroni_squads(callback):
 
 
 def necroni_characters(callback):
-
     '''Персонажи Некронов'''
 
     necroni_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -252,7 +235,6 @@ def necroni_characters(callback):
 
 
 def orks_main(callback):
-
     '''Меню Орков'''
 
     orks_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -268,7 +250,6 @@ def orks_main(callback):
 
 
 def orks_technics(callback):
-
     '''Техника Орков'''
 
     orks_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -281,7 +262,6 @@ def orks_technics(callback):
 
 
 def orks_squads(callback):
-
     '''Отряды Орков'''
 
     orks_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -294,7 +274,6 @@ def orks_squads(callback):
 
 
 def orks_characters(callback):
-
     '''Персонажи Орков'''
 
     orks_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -307,7 +286,6 @@ def orks_characters(callback):
 
 
 def tau_main(callback):
-
     '''Меню Империи Тау'''
 
     tau_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -323,7 +301,6 @@ def tau_main(callback):
 
 
 def tau_technics(callback):
-
     '''Техника Империи Тау'''
 
     tau_technics_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -336,7 +313,6 @@ def tau_technics(callback):
 
 
 def tau_squads(callback):
-
     '''Отряды Империи Тау'''
 
     tau_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -349,7 +325,6 @@ def tau_squads(callback):
 
 
 def tau_characters(callback):
-
     '''Персонажи Империи Тау'''
 
     tau_characters_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -362,7 +337,6 @@ def tau_characters(callback):
 
 
 def tiranidi_main(callback):
-
     '''Меню Тиранидов'''
 
     tiranidi_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -377,7 +351,6 @@ def tiranidi_main(callback):
 
 
 def tiranidi_squads(callback):
-
     '''Отряды Тиранидов'''
 
     tiranidi_squads_inline = types.InlineKeyboardMarkup(row_width=1)
@@ -390,7 +363,6 @@ def tiranidi_squads(callback):
 
 
 def tiranidi_monstrs(callback):
-
     '''Монстры Тиранидов'''
 
     tiranidi_ispolin_inline = types.InlineKeyboardMarkup(row_width=1)
